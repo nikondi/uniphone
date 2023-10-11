@@ -292,7 +292,7 @@ p {
 
 .preloader {
   position: fixed;
-  background-color: #fff;
+  background-color: $thm-base;
   background-position: center center;
   background-repeat: no-repeat;
   top: 0;
@@ -300,24 +300,120 @@ p {
   right: 0;
   bottom: 0;
   z-index: 9991;
-  display: -webkit-box;
-  display: flex;
   -webkit-box-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
   text-align: center;
+    display: none;
 
   &__image {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    -webkit-animation-name: flipInY;
-    animation-name: flipInY;
+    //-webkit-animation-name: flipInY;
+    //animation-name: flipInY;
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate;
+      animation-direction: alternate;
+
+      #preloader-svg-un,
+      #preloader-svg-i,
+      #preloader-svg-phone {
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+          -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+          will-change: stroke-dashoffset;
+          pointer-events: none;
+      }
+      #preloader-svg-un {
+          stroke-dasharray: 124.46253204345703;
+          animation-name: preloader-anim-un;
+      }
+      #preloader-svg-i {
+          stroke-dasharray: 30.5;
+          animation-name: preloader-anim-i;
+      }
+      #preloader-svg-phone {
+          animation-name: preloader-anim-phone;
+          stroke-dasharray: 259.4951477050781;
+      }
+      .preloader-svg-gray {
+          animation-name: preloader-anim-gray;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+          -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+          will-change: filter;
+
+          pointer-events: none;
+      }
+      #preloader-svg-dot {
+          animation-name: preloader-anim-dot;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+          -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+          will-change: transform;
+          transform-origin: 50% 50%;
+          pointer-events: none;
+      }
   }
+}
+
+@keyframes preloader-anim-un {
+    0% {
+        stroke-dashoffset: 124.46253204345703;
+    }
+    75%, 100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes preloader-anim-i {
+    0% {
+        stroke-dashoffset: 30.5;
+    }
+    75%, 100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes preloader-anim-phone {
+    0% {
+        stroke-dashoffset: 259.4951477050781;
+    }
+    75%, 100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes preloader-anim-gray {
+    0%, 50% {
+        filter: opacity(0);
+    }
+    75%, 100% {
+        filter: opacity(1);
+    }
+}
+@keyframes preloader-anim-dot {
+    0%, 50% {
+        transform: translate3d(0, 10px, 0);
+        filter: opacity(0);
+    }
+    60% {
+        transform: translate3d(0, -4px, 0);
+        filter: opacity(1);
+    }
+    75%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 /* scroll to top */
