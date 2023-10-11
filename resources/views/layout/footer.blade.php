@@ -33,11 +33,11 @@
                 </div><!-- /.col-sm-12 col-md-6 col-lg-3 -->
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <div class="footer-widget footer-widget__links">
-                        <h3 class="footer-widget__title">Links</h3><!-- /.footer-widget__title -->
+                        <h3 class="footer-widget__title">Ссылки</h3><!-- /.footer-widget__title -->
                         <div class="footer-widget__links-wrap">
                             <ul class="list-unstyled">
-                                <li><a href="services.html">
-                                        Our Services
+                                <li><a href="/vacancies/">
+                                        Вакансии
                                     </a></li>
                                 <li><a href="about.html">
                                         Best Cleaning
