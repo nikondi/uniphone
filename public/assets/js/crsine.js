@@ -476,7 +476,7 @@
     // window scroll event
 
     $(window).on("scroll", function() {
-        if($(".stricked-menu").length) {
+        /*if($(".stricked-menu").length) {
             const headerScrollPos = 130;
             var stricky = $(".stricked-menu");
             if($(window).scrollTop() > headerScrollPos) {
@@ -484,7 +484,7 @@
             } else if($(this).scrollTop() <= headerScrollPos) {
                 stricky.removeClass("stricky-fixed");
             }
-        }
+        }*/
         if($(".scroll-to-top").length) {
             const strickyScrollPos = 100;
             if($(window).scrollTop() > strickyScrollPos) {
@@ -529,43 +529,68 @@
     hiddenFooter_media.addListener(checkHiddenFooter);
 
 
+    // Sticky navs of main slider
 
+    if($('.main-slider__nav').length) {
+        function simulateSticky(elem, timeout = 0) {
+            let $elem = $(elem);
+            let $parent = $elem.parent();
+            $elem.css('top', 0);
 
-    function simulateSticky(elem, timeout = 0) {
-        let $elem = $(elem);
-        let $parent = $elem.parent();
-        $elem.css('top', 0);
+            let move = function() {
+                let top_border = $parent.offset().top;
 
-        let move = function() {
-            let top_border = $parent.offset().top;
+                let parent_height = $parent.outerHeight();
+                let window_height = window.innerHeight;
 
-            let parent_height = $parent.outerHeight();
-            let window_height = window.innerHeight;
+                let scroll_top = $(window).scrollTop();
+                let position = window_height+scroll_top-top_border-$elem.outerHeight();
 
-            let scroll_top = $(window).scrollTop();
-            let position = window_height+scroll_top-top_border-$elem.outerHeight();
+                if(position < 0)
+                    position = 0;
+                if(position+$elem.outerHeight() > parent_height)
+                    position = parent_height-$elem.outerHeight();
 
-            if(position < 0)
-                position = 0;
-            if(position+$elem.outerHeight() > parent_height)
-                position = parent_height-$elem.outerHeight();
+                $elem.css('margin-top', position);
+            };
 
-            $elem.css('margin-top', position);
-        };
-
-        let move_timeout;
-        $(window).on('scroll resize', function() {
-            clearTimeout(move_timeout);
-            move_timeout = setTimeout(function() {
+            let move_timeout;
+            $(window).on('scroll resize', function() {
+                clearTimeout(move_timeout);
+                move_timeout = setTimeout(function() {
+                    move();
+                }, 10);
+            });
+            setTimeout(function() {
                 move();
-            }, 10);
-        });
-        setTimeout(function() {
-            move();
-        }, timeout);
+            }, timeout);
+        }
+
+        simulateSticky($('.main-slider__nav'))
     }
 
-    simulateSticky($('.main-slider__nav'))
+    // Hide header on scroll
+
+    let last_page_scroll;
+    const header = document.querySelector('.stricky-header');
+    const headerScrollPos = 130;
+    window.addEventListener('scroll', function() {
+        if(window.pageYOffset > headerScrollPos) {
+            let delta = window.pageYOffset-last_page_scroll;
+
+            if(delta != 0) {
+                if(delta > 0) {
+                    if(window.pageYOffset > headerScrollPos)
+                        header.classList.remove('stricky-fixed');
+                } else if((window.innerHeight+window.pageYOffset) < document.body.offsetHeight)
+                    header.classList.add('stricky-fixed');
+            }
+            last_page_scroll = window.pageYOffset;
+        }
+        else
+            header.classList.remove('stricky-fixed');
+    });
+
 
     $('.js-tilt').tilt({
         maxTilt: 20,

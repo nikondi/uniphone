@@ -370,52 +370,6 @@ p {
   }
 }
 
-@keyframes preloader-anim-un {
-    0% {
-        stroke-dashoffset: 124.46253204345703;
-    }
-    75%, 100% {
-        stroke-dashoffset: 0;
-    }
-}
-@keyframes preloader-anim-i {
-    0% {
-        stroke-dashoffset: 30.5;
-    }
-    75%, 100% {
-        stroke-dashoffset: 0;
-    }
-}
-@keyframes preloader-anim-phone {
-    0% {
-        stroke-dashoffset: 259.4951477050781;
-    }
-    75%, 100% {
-        stroke-dashoffset: 0;
-    }
-}
-@keyframes preloader-anim-gray {
-    0%, 50% {
-        filter: opacity(0);
-    }
-    75%, 100% {
-        filter: opacity(1);
-    }
-}
-@keyframes preloader-anim-dot {
-    0%, 50% {
-        transform: translate3d(0, 10px, 0);
-        filter: opacity(0);
-    }
-    60% {
-        transform: translate3d(0, -4px, 0);
-        filter: opacity(1);
-    }
-    75%, 100% {
-        transform: translate3d(0, 0, 0);
-    }
-}
-
 /* scroll to top */
 .scroll-to-top {
   display: inline-block;

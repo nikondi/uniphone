@@ -48,3 +48,119 @@
         }
     }
 }
+
+
+.main-video {
+    height: 400px;
+    width: 100%;
+    max-width: 2180px;
+    margin: 0 auto;
+    background-image: url('/assets/images/backgrounds/main-slider-1-1.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+        content: '';
+        z-index: 1;
+        background-color: rgb(#000000, .7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    &__text {
+        position: relative;
+        z-index: 2;
+        h3 {
+            color: #FFFFFF;
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+
+            @include laptop {
+                font-size: 72px;
+            }
+            @include tablet {
+                font-size: 56px;
+
+                &:before,
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    height: 5px;
+                    background-color: $thm-primary;
+                    width: 70px;
+                    margin-right: 25px;
+                    vertical-align: middle;
+                }
+                &:after {
+                    margin-right: 0;
+                    margin-left: 25px;
+                }
+            }
+        }
+    }
+    &__description {
+        font-size: 16px;
+        color: #FFFFFF;
+        text-align: center;
+        @include laptop {
+            font-size: 48px;
+        }
+        @include tablet {
+            font-size: 30px;
+        }
+    }
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 75px;
+        height: 75px;
+        border: 1px solid currentColor;
+        transition: .3s background-color;
+        color: #FFFFFF;
+        overflow: hidden;
+        font-size: 16px;
+        position: relative;
+        margin: 25px auto 0;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            border-radius: inherit;
+            background-color: currentColor;
+            width: 0;
+            height: 0;
+            transition-duration: 400ms;
+            transition-property: width, height;
+        }
+
+        i {
+            transition: .4s color;
+        }
+
+        &:hover {
+            color: #FFFFFF;
+            i {
+                color: $thm-primary
+            }
+            &:before {
+                width: 105%;
+                height: 105%;
+            }
+        }
+    }
+}

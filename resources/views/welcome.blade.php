@@ -153,7 +153,7 @@
         </div>
     </section>
 
-    <section class="about-two">
+    {{--<section class="about-two">
         <div class="container">
             <div class="row flex-lg-row-reverse">
                 <div class="col-lg-6">
@@ -286,6 +286,7 @@
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /.service-home -->
+
 
     <section class="feature-lists">
         <div class="feature-lists__boxed jarallax" data-jarallax data-speed="0.3" data-imgPosition="50% 80%">
@@ -471,6 +472,7 @@
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /.feature-one -->
+
 
     <section class="pricing-one">
         <div class="container">
@@ -1062,7 +1064,6 @@
         </div><!-- /.container -->
     </section><!-- /.feature-two -->
 
-
     <div class="gallery-two__home-title">
         <div class="container">
             Checkout Our Gallery
@@ -1125,7 +1126,7 @@
                 </div><!-- /.swiper-slide -->
             </div><!-- /.swiper-wrapper -->
         </div><!-- /.thm-swiper__slider -->
-    </div><!-- /.gallery-two -->
+    </div><!-- /.gallery-two -->--}}
 
 
 
@@ -1154,7 +1155,19 @@
         </section><!-- /.blog-home -->
     @endif
 
-    <hr class="section-separator">
+    <section>
+        <div class="main-video">
+            <div class="main-video__text">
+                <h3>Посмотрите видео о нас</h3>
+                <div class="main-video__description">
+                    И вам точно понравится
+                </div>
+                <a href="https://www.youtube.com/watch?v=PxtNRoc_7J8" class="lightbox-image main-video__link"><i class="fa fa-play"></i></a>
+            </div>
+        </div>
+    </section>
+
+{{--    <hr class="section-separator">
     <div class="client-carousel ">
         <div class="container">
             <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 140, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
@@ -1247,7 +1260,7 @@
                 </div><!-- /.swiper-wrapper -->
             </div><!-- /.thm-swiper__slider -->
         </div><!-- /.container -->
-    </div><!-- /.client-carousel -->
+    </div><!-- /.client-carousel -->--}}
 @endsection
 
 
