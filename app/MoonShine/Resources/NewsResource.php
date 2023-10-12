@@ -63,21 +63,25 @@ class NewsResource extends Resource
                             ->hideOnIndex()
                             ->required(),
                     ]),
-                    Collapse::make('SEO', [
-                        Text::make('SEO заголовок', 'seo_title')
-                            ->hideOnIndex(),
-                        Textarea::make('SEO описание', 'seo_description')
-                            ->hideOnIndex(),
-                    ]),
                 ])->columnSpan(8),
                 Column::make([
                     Block::make('Дополнительная информация', [
-                        Image::make('Обложка', 'thumbnail')
-                            ->disk('public')
-                            ->dir('news')
-                            ->removable()
-                            ->allowedExtensions(['png', 'jpg', 'webm'])
-                            ->hideOnIndex(),
+                        Collapse::make('Изображения', [
+                            Image::make('Обложка', 'thumbnail')
+                                ->disk('public')
+                                ->dir('news')
+                                ->removable()
+                                ->allowedExtensions(['png', 'jpg', 'webm'])
+                                ->hideOnIndex(),
+                        ]),
+
+                        Collapse::make('SEO', [
+                            Text::make('SEO заголовок', 'seo_title')
+                                ->hideOnIndex(),
+                            Textarea::make('SEO описание', 'seo_description')
+                                ->hideOnIndex(),
+                        ]),
+
                     ]),
                 ])->columnSpan(4),
             ]),

@@ -1,8 +1,12 @@
 .blog-card {
   position: relative;
   background-color: #fff;
-  box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
-
+  box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   &__image {
     position: relative;
     overflow: hidden;
@@ -24,7 +28,7 @@
       justify-content: center;
       align-items: center;
       opacity: 0;
-      transform: translateY(-20%);
+      transform: translateY(-30%);
       transition: opacity 500ms ease, transform 500ms ease;
 
       &::before,
@@ -58,18 +62,21 @@
   &__content {
     padding: 30px;
     position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
 
     &::after {
       content: '';
       width: 100%;
-      height: 2px;
+      height: 4px;
       background-color: $thm-secondary;
       position: absolute;
       bottom: 0;
       left: 0;
       transform: scale(0, 1);
       transform-origin: left center;
-      transition: transform 500ms ease;
+      transition: transform 400ms ease;
     }
   }
 
@@ -79,21 +86,31 @@
   }
 
   &__date {
-    width: 69px;
-    height: 69px;
-    background-color: $thm-base;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    line-height: 1.2em;
-    position: absolute;
-    bottom: 100%;
+      background: #fff;
+      border-radius: 30px;
+      padding: 4px 20px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+
+      p {
+          margin-left: 8px;
+          margin-bottom: 0;
+          color: #666666;
+          &:first-letter {
+              text-transform: uppercase;
+          }
+      }
+      i {
+          color: $thm-primary;
+      }
   }
+    &__image &__date {
+        position: absolute;
+        left: 25px;
+        top: 25px;
+        z-index: 1;
+    }
 
   &__meta {
     display: flex;
@@ -111,11 +128,12 @@
         color: $thm-secondary;
         font-size: 14px;
         margin-right: 5px;
+          transition: .4s color;
       }
 
       a {
         color: inherit;
-        transition: all 500ms ease;
+          transition: .4s color;
       }
 
       &:hover {
@@ -152,11 +170,11 @@
   }
 
   &__text {
-    margin: 0;
-    font-size: 18px;
+      font-size: 18px;
     line-height: 30px;
     color: $thm-color;
-    margin-bottom: 13px;
+      margin: 0 0 13px;
+      flex: 1;
   }
 
   &__more {
@@ -166,6 +184,8 @@
     line-height: 1;
     align-items: center;
     color: $thm-primary;
+
+      transition: .4s color;
 
     i {
       margin-left: 7px;

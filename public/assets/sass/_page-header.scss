@@ -20,6 +20,11 @@
     bottom: 0;
     background-repeat: no-repeat;
     background-size: cover;
+      &:before {
+          content: '';
+          position: absolute;
+          inset: 0;
+      }
   }
 
   .container {

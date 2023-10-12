@@ -1,16 +1,16 @@
-@extends('layout.base')
+@extends('layout.base', ['pageHeader' => false])
 
 @section('content')
     <section class="main-slider">
         <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-    "effect": "fade",
-    "navigation": {
-        "nextEl": "#main-slider__swiper-button-next",
-        "prevEl": "#main-slider__swiper-button-prev"
-    },
-    "autoplay": {
-        "delay": 6000
-    }}'>
+          "effect": "fade",
+          "navigation": {
+            "nextEl": "#main-slider__swiper-button-next",
+            "prevEl": "#main-slider__swiper-button-prev"
+          },
+          "autoplay": {
+              "delay": 6000
+          }}'>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="image-layer">
@@ -1129,142 +1129,30 @@
 
 
 
-    <section class="blog-home">
-        <div class="container">
-            <div class="blog-home__top">
-                <div class="section-title">
-                    <span class="section-title__tagline">Write a Message</span>
-                    <h2 class="section-title__title">We’re Connected to Help You <br>
-                        All the Time</h2>
-                </div><!-- /.section-title -->
+    @if(!empty($news))
+        <section class="blog-home">
+            <div class="container">
+                <div class="blog-home__top">
+                    <div class="section-title">
+                        {{--<span class="section-title__tagline">Новости компании</span>--}}
+                        <h2 class="section-title__title">Новости компании</h2>
+                    </div><!-- /.section-title -->
 
-                <div class="blog-home__top-text">
-                    Donec pellentesque dapibus interdum. Mauris et tellus <br> congue rutrum neque a, varius felis.
-                </div><!-- /.blog-home__top-text -->
+                    {{--<div class="blog-home__top-text">
+                        Donec pellentesque dapibus interdum. Mauris et tellus <br> congue rutrum neque a, varius felis.
+                    </div><!-- /.blog-home__top-text -->--}}
 
-            </div><!-- /.blog-home__top -->
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <div class="blog-card">
-                        <div class="blog-card__image">
-                            <img src="assets/images/blog/blog-1-1.png" alt="">
-                            <a href="news-details.html"></a>
-                        </div><!-- /.blog-card__image -->
-                        <div class="blog-card__content">
-                            <div class="blog-card__date">
-                                20 Jan
-                            </div><!-- /.blog-card__date -->
-                            <ul class="list-unstyled blog-card__meta">
-                                <li class="blog-card__meta-item">
-                                    <a href="#">
-                                        <i class="far fa-user-circle"></i>
-                                        by Admin
-                                    </a>
-                                </li>
-                                <li class="blog-card__meta-item">
-                                    <a href="#">
-                                        <i class="far fa-comments"></i>
-                                        2 Comments
-                                    </a>
-                                </li>
-                            </ul><!-- /.blog-card__meta -->
-                            <h3 class="blog-card__title">
-                                <a href="news-details.html">
-                                    Intrinsicly pontificate cross-media rather
-                                </a>
-                            </h3><!-- /.blog-card__title -->
-                            <p class="blog-card__text">
-                                Lorem ipsum is simply free text used by copytyping refreshing.
-                            </p><!-- /.blog-card__text -->
-                            <a href="news-details.html" class="blog-card__more">
-                                Read More
-                                <i class="far fa-arrow-alt-circle-right"></i>
-                            </a><!-- /.blog-card__more -->
-                        </div><!-- /.blog-card__content -->
-                    </div><!-- /.blog-card -->
-                </div><!-- /.col-sm-12 col-md-6 col-lg-4 -->
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <div class="blog-card">
-                        <div class="blog-card__image">
-                            <img src="assets/images/blog/blog-1-2.png" alt="">
-                            <a href="news-details.html"></a>
-                        </div><!-- /.blog-card__image -->
-                        <div class="blog-card__content">
-                            <div class="blog-card__date">
-                                20 Jan
-                            </div><!-- /.blog-card__date -->
-                            <ul class="list-unstyled blog-card__meta">
-                                <li class="blog-card__meta-item">
-                                    <a href="#">
-                                        <i class="far fa-user-circle"></i>
-                                        by Admin
-                                    </a>
-                                </li>
-                                <li class="blog-card__meta-item">
-                                    <a href="#">
-                                        <i class="far fa-comments"></i>
-                                        2 Comments
-                                    </a>
-                                </li>
-                            </ul><!-- /.blog-card__meta -->
-                            <h3 class="blog-card__title">
-                                <a href="news-details.html">
-                                    Holisticly incubate user friendly scenarios for
-                                </a>
-                            </h3><!-- /.blog-card__title -->
-                            <p class="blog-card__text">
-                                Lorem ipsum is simply free text used by copytyping refreshing.
-                            </p><!-- /.blog-card__text -->
-                            <a href="news-details.html" class="blog-card__more">
-                                Read More
-                                <i class="far fa-arrow-alt-circle-right"></i>
-                            </a><!-- /.blog-card__more -->
-                        </div><!-- /.blog-card__content -->
-                    </div><!-- /.blog-card -->
-                </div><!-- /.col-sm-12 col-md-6 col-lg-4 -->
-                <div class="col-sm-12 col-md-6 col-lg-4">
-                    <div class="blog-card">
-                        <div class="blog-card__image">
-                            <img src="assets/images/blog/blog-1-3.png" alt="">
-                            <a href="news-details.html"></a>
-                        </div><!-- /.blog-card__image -->
-                        <div class="blog-card__content">
-                            <div class="blog-card__date">
-                                20 Jan
-                            </div><!-- /.blog-card__date -->
-                            <ul class="list-unstyled blog-card__meta">
-                                <li class="blog-card__meta-item">
-                                    <a href="#">
-                                        <i class="far fa-user-circle"></i>
-                                        by Admin
-                                    </a>
-                                </li>
-                                <li class="blog-card__meta-item">
-                                    <a href="#">
-                                        <i class="far fa-comments"></i>
-                                        2 Comments
-                                    </a>
-                                </li>
-                            </ul><!-- /.blog-card__meta -->
-                            <h3 class="blog-card__title">
-                                <a href="news-details.html">
-                                    Get Some Useful Car Service Tips
-                                </a>
-                            </h3><!-- /.blog-card__title -->
-                            <p class="blog-card__text">
-                                Lorem ipsum is simply free text used by copytyping refreshing.
-                            </p><!-- /.blog-card__text -->
-                            <a href="news-details.html" class="blog-card__more">
-                                Read More
-                                <i class="far fa-arrow-alt-circle-right"></i>
-                            </a><!-- /.blog-card__more -->
-                        </div><!-- /.blog-card__content -->
-                    </div><!-- /.blog-card -->
-                </div><!-- /.col-sm-12 col-md-6 col-lg-4 -->
-
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section><!-- /.blog-home -->
+                </div><!-- /.blog-home__top -->
+                <div class="row">
+                    @foreach($news as $k => $post)
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <x-news.card :$post class="wow flipInY" data-wow-duration="1100ms" data-wow-delay="{{ $k * 300 }}ms"/>
+                        </div>
+                    @endforeach
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.blog-home -->
+    @endif
 
     <hr class="section-separator">
     <div class="client-carousel ">

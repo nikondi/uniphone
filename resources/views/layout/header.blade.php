@@ -32,7 +32,7 @@
                     </a>
                 </div><!-- /.main-menu__logo -->
                 <ul class="main-menu__list">
-                    <li>
+                    <li{!! active_link('welcome', ' class="current"') !!}>
                         <a href="{{ route('welcome') }}">{{ __('Главная') }}</a>
                     </li>
                     <li>
@@ -57,8 +57,8 @@
                             <li><a href="404.html">Error Page</a></li>
                         </ul>
                     </li>--}}
-                    <li>
-                        <a href="#">{{ __('Новости') }}</a>
+                    <li{!! active_link('news*', ' class="current"') !!}>
+                        <a href="{!! route('news') !!}">{{ __('Новости') }}</a>
                     </li>
                     <li>
                         <a href="shop.html">{{ __('Контакты') }}</a>

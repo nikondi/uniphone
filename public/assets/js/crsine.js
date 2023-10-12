@@ -147,7 +147,7 @@
 
 
 
-  function dynamicCurrentMenuClass(selector) {
+/*  function dynamicCurrentMenuClass(selector) {
     let FileName = window.location.href.split("/").reverse()[0];
 
     selector.find("li").each(function () {
@@ -172,7 +172,7 @@
     // dynamic current class
     let mainNavUL = $(".main-menu__list");
     dynamicCurrentMenuClass(mainNavUL);
-  }
+  }*/
 
   if ($(".main-menu__list").length && $(".mobile-nav__container").length) {
     let navContent = document.querySelector(".main-menu__list").outerHTML;
