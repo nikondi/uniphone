@@ -1130,7 +1130,7 @@
 
 
 
-    @if(!empty($news))
+    @if(!empty($news)) {{-- TODO: Slider mobile--}}
         <section class="blog-home">
             <div class="container">
                 <div class="blog-home__top">

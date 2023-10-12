@@ -4,20 +4,24 @@
             <div class="topbar__inner">
                 <ul class="list-unstyled topbar__infos">
                     <li class="topbar__infos-item">
-                        <a class="topbar__infos-link" href="#"><i class="far fa-clock"></i> Monday to Saturday 9:00 to
-                            6:00</a>
+                        <span class="topbar__infos-link">
+                            <i class="far fa-clock"></i>
+                            Пн-Чт 08:00-18:00 Пт 08:00-17:00
+                        </span>
                     </li>
                     <li class="topbar__infos-item">
-                        <a class="topbar__infos-link" href="tel:92-666-888-0000"><i class="fa fa-phone-alt"></i> 92 666
-                            888 000</a>
+                        <a class="topbar__infos-link" href="tel:88005553535">
+                            <i class="fa fa-phone-alt"></i>
+                            8 800 555-35-35
+                        </a>
                     </li>
                 </ul><!-- /.list-unstyled topbar__infos -->
 
                 <div class="topbar__social">
-                    <a href="#" class="fab fa-twitter"></a>
+                    {{--<a href="#" class="fab fa-twitter"></a>
                     <a href="#" class="fab fa-facebook-square"></a>
                     <a href="#" class="fab fa-pinterest-p"></a>
-                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-instagram"></a>--}}
                 </div><!-- /.topbar__social -->
             </div><!-- /.topbar__inner -->
         </div><!-- /.container -->

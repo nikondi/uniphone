@@ -14,13 +14,12 @@
             <div class="row">
                 <div class="col-md-12 col-lg-8">
                     <div class="blog-card__image blog-details__image">
-                        <div class="blog-card__date">18 Nov</div><!-- /.blog-card__date -->
-                        <img src="{{ asset('assets/images/blog/blog-d-1-1.jpg') }}" class="img-fluid" alt="">
+                        <x-news.card-date :date="$post->published_at" class="blog-details__date"/>
+                        <img src="{{ $post->getThumbnail() }}" class="img-fluid" alt="">
                     </div><!-- /.blog-card__image -->
 
 
                     <div class="blog-details__content blog-card__content">
-                        <x-news.card-date :date="$post->published_at"/>
                         <x-news.card-meta :comments_count="2"/>
 
                         <h3 class="blog-card__title">Get Some Useful Car Service Tips</h3>
@@ -29,7 +28,7 @@
                             {!! $post->content !!}
                         </div>
                     </div><!-- /.blog-details__content -->
-                    <div class="blog-details__meta">
+{{--                    <div class="blog-details__meta">
                         <p class="blog-details__tags"><span>Tags:</span><a href="#">Car washing,</a><a href="#">Car
                                 washing</a></p>
                         <div class="blog-details__social">
@@ -111,39 +110,25 @@
                                 </div><!-- /.col-lg-12 -->
                             </div><!-- /.row -->
                         </form>
-                    </div><!-- /.comment-form -->
+                    </div><!-- /.comment-form -->--}}
                 </div><!-- /.col-md-12 col-lg-9 -->
                 <div class="col-md-12 col-lg-4">
                     <div class="blog-sidebar">
-                        <div class="blog-sidebar__search">
+                        {{--<div class="blog-sidebar__search">
                             <form action="#">
                                 <input type="text" placeholder="Search">
                                 <button type="submit"><i class="crsine-magnifying-glass"></i></button>
                             </form>
-                        </div><!-- /.blog-sidebar__search -->
+                        </div><!-- /.blog-sidebar__search -->--}}
                         <div class="blog-sidebar__posts">
-                            <h3>Recent Posts</h3>
+                            <h3>Похожие новости</h3>
                             <ul>
-                                <li>
-                                    <img src="{{ asset('assets/images/blog/lp-1-1.jpg') }}" alt="">
-                                    <span><i class="far fa-clock"></i>20 Nov, 2020</span>
-                                    <h4><a href="news-details.html">Get Some Useful Car
-                                            Service Tips</a></h4>
-                                </li>
-                                <li>
-                                    <img src="{{ asset('assets/images/blog/lp-1-2.jpg') }}" alt="">
-                                    <span><i class="far fa-clock"></i>20 Nov, 2020</span>
-                                    <h4><a href="news-details.html">Intri nsicly unleash energy innovation.</a></h4>
-                                </li>
-                                <li>
-                                    <img src="{{ asset('assets/images/blog/lp-1-3.jpg') }}" alt="">
-                                    <span><i class="far fa-clock"></i>20 Nov, 2020</span>
-                                    <h4><a href="news-details.html">
-                                            Objectively fabricate via just in time resources.
-                                        </a></h4>
-                                </li>
+                                @foreach($sidebar_posts as $post)
+                                    <x-news.sidebar :$post/>
+                                @endforeach
                             </ul>
                         </div><!-- /.blog-sidebar__posts -->
+{{--
                         <div class="service-details__menu">
                             <h3 class="service-details__menu-title">Categories</h3>
                             <ul class="list-unstyled service-details__menu-list">
@@ -201,6 +186,7 @@
                                 </a>
                             </div><!-- /.blog-sidebar__tags-links -->
                         </div><!-- /.blog-sidebar__tags -->
+--}}
 
                     </div><!-- /.blog-sidebar -->
                 </div><!-- /.col-md-12 col-lg-9 -->

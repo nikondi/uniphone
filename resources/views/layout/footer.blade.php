@@ -36,38 +36,10 @@
                         <h3 class="footer-widget__title">Ссылки</h3><!-- /.footer-widget__title -->
                         <div class="footer-widget__links-wrap">
                             <ul class="list-unstyled">
-                                <li><a href="/vacancies/">
-                                        Вакансии
-                                    </a></li>
-                                <li><a href="about.html">
-                                        Best Cleaning
-                                    </a></li>
-                                <li><a href="about.html">
-                                        Quality Polish
-
-                                    </a></li>
-                                <li><a href="contact.html">
-                                        Contact
-
-                                    </a></li>
-                                <li><a href="faqs.html">
-                                        Help
-                                    </a></li>
+                                <li><a href="/vacancies/">Вакансии</a></li>
                             </ul><!-- /.list-unstyled -->
                             <ul class="list-unstyled">
-                                <li><a href="shop.html">
-                                        New Products
-                                    </a></li>
-                                <li><a href="about.html">
-                                        About Store
-                                    </a></li>
-                                <li><a href="about.html">
-                                        Support
 
-                                    </a></li>
-                                <li><a href="faqs.html">
-                                        FAQs
-                                    </a></li>
                             </ul><!-- /.list-unstyled -->
                         </div><!-- /.footer-widget__links-wrap -->
                     </div><!-- /.footer-widget footer-widget__about -->
@@ -89,9 +61,9 @@
         <div class="container">
             <div class="bottom-footer__inner">
                 <p class="bottom-footer__text">© Copyrights, {{ date('Y') }} Uniphone</p>
-                <p class="bottom-footer__text"><a href="#">Terms & Condition</a>
+                {{--<p class="bottom-footer__text"><a href="#">Terms & Condition</a>
                     <a href="#">Privacy Policy</a>
-                </p>
+                </p>--}}
             </div><!-- /.bottom-footer__inner -->
         </div><!-- /.container -->
     </div><!-- /.bottom-footer -->

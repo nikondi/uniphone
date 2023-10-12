@@ -4,22 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
     public function index() {
-        return view('news.index');
+        $posts = News::query()->limit(12)->get();
+
+        return view('news.index', compact(['posts']));
     }
 
     public function show($post_slug) {
-        /**
-         * @var News $post
-         * */
-
         $post = News::query()->where('slug', $post_slug)->first();
 
         if(is_null($post))
             abort(404);
+
+        $sidebar_posts = News::orderByRaw('RAND()')->take(3)->get();;
 
         $seo_title = empty($post->seo_title)?$post->title:$post->seo_title;
         $seo_title .= ' - '.env('APP_NAME');
@@ -28,6 +29,6 @@ class NewsController extends Controller
         if(!empty($post->seo_description))
             seo()->description($post->seo_description);
 
-        return view('news.single', compact(['post']));
+        return view('news.single', compact(['post', 'sidebar_posts']));
     }
 }
