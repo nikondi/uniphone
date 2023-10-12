@@ -33,18 +33,17 @@
 
 <body>
 @include('layout.parts.preloader')
-<div class="page-wrapper">
+<div class="page-wrapper" id="page-wrapper">
     @include('layout.header')
 
-    @if(!isset($pageHeader) || $pageHeader)
-        @include('layout.parts.page-header')
-    @endif
+    <div id="page-content">
+        @if(!isset($pageHeader) || $pageHeader)
+            @include('layout.parts.page-header')
+        @endif
 
-    <div class="page-content">
-    @section('content')
-    @show
+        @section('content')
+        @show
     </div>
-
 
     @include('layout.footer')
 </div><!-- /.page-wrapper -->

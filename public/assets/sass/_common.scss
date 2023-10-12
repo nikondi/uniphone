@@ -535,3 +535,10 @@ p {
         display: none;
     }
 }
+
+#page-wrapper {
+    background-color: #ffffff;
+    &.page-content--fhidden {
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 20px 30px -20px;
+    }
+}
