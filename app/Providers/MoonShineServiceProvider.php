@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\NewsResource;
 use App\MoonShine\Resources\SeoResource;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\MoonShine;
@@ -25,6 +26,9 @@ class MoonShineServiceProvider extends ServiceProvider
             ])->translatable(),
 
             MenuItem::make('SEO', new SeoResource())->icon('heroicons.chat-bubble-left-ellipsis'),
+
+            MenuItem::make('Новости', new NewsResource())->icon('heroicons.academic-cap'),
+
 
             /*MenuItem::make('Documentation', 'https://laravel.com')
                 ->badge(fn() => 'Check'),*/

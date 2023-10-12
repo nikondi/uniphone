@@ -33,13 +33,13 @@
                 </div><!-- /.main-menu__logo -->
                 <ul class="main-menu__list">
                     <li>
-                        <a href="/">Главная</a>
+                        <a href="{{ route('welcome') }}">{{ __('Главная') }}</a>
                     </li>
                     <li>
-                        <a href="about.html">О компании</a>
+                        <a href="#">{{ __('О компании') }}</a>
                     </li>
                     <li class="dropdown">
-                        <a href="services.html">Каталог</a>
+                        <a href="#">{{ __('Каталог') }}</a>
                         <ul>
                             <li><a href="services.html">СКУД</a></li>
                             <li><a href="service-details.html">И тд</a></li>
@@ -58,10 +58,10 @@
                         </ul>
                     </li>--}}
                     <li>
-                        <a href="news.html">Новости</a>
+                        <a href="#">{{ __('Новости') }}</a>
                     </li>
                     <li>
-                        <a href="shop.html">Контакты</a>
+                        <a href="shop.html">{{ __('Контакты') }}</a>
                     </li>
                 </ul>
                 <div class="main-menu__right">
@@ -69,7 +69,7 @@
 {{--                    <a href="#" class="main-menu__cart crsine-shopping-cart mini-cart__toggler"></a>--}}
                     <a href="online-booking.html" class="thm-btn thm-btn--iconleft">
                         <i class="far fa-user"></i>
-                        Личный кабинет
+                        {{ __('Личный кабинет') }}
                     </a><!-- /.thm-btn -->
                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                 </div><!-- /.main-menu__right -->
