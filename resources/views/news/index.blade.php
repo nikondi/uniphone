@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 @foreach($posts as $k => $post)
-                    <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-sm-6 col-lg-4">
                         <x-news.card :$post/>
                     </div>
                 @endforeach

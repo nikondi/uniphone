@@ -39,8 +39,8 @@
                     <li{!! active_link('welcome', ' class="current"') !!}>
                         <a href="{{ route('welcome') }}">{{ __('Главная') }}</a>
                     </li>
-                    <li>
-                        <a href="#">{{ __('О компании') }}</a>
+                    <li{!! active_link('about', ' class="current"') !!}>
+                        <a href="{{ route('about') }}">{{ __('О компании') }}</a>
                     </li>
                     <li class="dropdown">
                         <a href="#">{{ __('Каталог') }}</a>
@@ -64,8 +64,8 @@
                     <li{!! active_link('news*', ' class="current"') !!}>
                         <a href="{!! route('news') !!}">{{ __('Новости') }}</a>
                     </li>
-                    <li>
-                        <a href="shop.html">{{ __('Контакты') }}</a>
+                    <li{!! active_link('contacts', ' class="current"') !!}>
+                        <a href="{{ route('contacts') }}">{{ __('Контакты') }}</a>
                     </li>
                 </ul>
                 <div class="main-menu__right">

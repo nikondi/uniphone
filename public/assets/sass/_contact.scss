@@ -60,6 +60,7 @@
     }
 
     &__form {
+        transition: .5s opacity;
         .row {
             margin-left: -10px;
             margin-right: -10px;
@@ -69,10 +70,25 @@
                 padding-right: 10px;
             }
         }
+        &--loading {
+            opacity: .5;
+            pointer-events: none;
+        }
+
+        .input-wrap {
+            margin-bottom: 20px;
+        }
+        label.error {
+            margin-top: 5px;
+            color: #e50000;
+            font-size: 14px;
+            line-height: 1;
+        }
 
         textarea,
         select,
         input[type=text],
+        input[type=tel],
         input[type=email] {
             width: 100%;
             height: 70px;
@@ -80,12 +96,23 @@
             padding-right: 30px;
             font-size: 16px;
             font-weight: 500;
-            color: $thm-color;
+            color: $thm-black;
             border: none;
             outline: none;
             display: block;
             background-color: $thm-gray;
-            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid $thm-gray;
+            transition: .2s border-color;
+            &.error {
+                border-color: $thm-red-error;
+            }
+            &.valid {
+                border-color: $thm-green-success;
+            }
+            &:focus {
+                border-color: $thm-primary;
+            }
         }
 
         select {
@@ -100,10 +127,11 @@
         textarea {
             height: 170px;
             padding-top: 15px;
+            resize: none;
         }
 
         ::placeholder {
-            color: inherit;
+            color: $thm-color;
             opacity: 1;
         }
 
@@ -112,11 +140,29 @@
             font-weight: 800;
             padding: 20px 48px;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-color: $thm-black;
                 color: #fff;
             }
         }
+    }
+}
+.contacts__result {
+    display: none;
+    p {
+        margin-bottom: 0;
+        margin-top: 15px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: #FFFFFF;
+    }
+    &--success p {
+        background-color: $thm-green-success;
+        line-height: 1.1;
+    }
+    &--error p {
+        background-color: $thm-red-error;
     }
 }
 
@@ -250,7 +296,8 @@
                         margin-top: 0;
                     }
 
-                    &:hover {
+                    &:hover,
+                    &:focus {
                         background-color: $thm-black;
                         color: #fff;
                     }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +21,9 @@ Route::get('/', WelcomeController::class)->name('welcome');
 
 Route::get('/news/', [NewsController::class, 'index'])->name('news');
 Route::get('/news/{post_slug}', [NewsController::class, 'show'])->name('news.show');
+
+Route::get('/about/', AboutController::class)->name('about');
+
+Route::get('/contacts/', [FeedbackController::class, 'contacts'])->name('contacts');
+Route::post('/feedback/send/', [FeedbackController::class, 'send'])->name('feedback.send');
 

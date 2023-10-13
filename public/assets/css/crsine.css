@@ -32,9 +32,9 @@
 # Common
 --------------------------------------------------------------*/
 :root {
-  --thm-font: "Barlow", sans-serif;
-  --heading-font: "Barlow", sans-serif;
-  --special-font: "Barlow", sans-serif;
+  --thm-font: "OpenSans", sans-serif;
+  --heading-font: "Oswald", sans-serif;
+  --special-font: "OpenSans", sans-serif;
   --thm-color: #727a84;
   --thm-color-rgb: 114, 122, 132;
   --thm-gray: #eef3f7;
@@ -55,6 +55,10 @@
   --thm-text-dark-rgb: 175, 192, 214;
   --thm-border: #e2e9f0;
   --thm-border-rgb: 226, 233, 240;
+  --thm-red-error: #ff3333;
+  --thm-red-error-rgb: 77, 179, 77;
+  --thm-green-success: #4db34d;
+  --thm-green-success-rgb: 255, 51, 51;
 }
 
 body {
@@ -422,9 +426,10 @@ h6 br {
 .preloader__background .layer:before {
   content: "";
   display: block;
-  width: 100%;
+  width: 110%;
   height: 100%;
   background-color: var(--thm-base);
+  transform: translate3d(-5%, 0, 0);
   transition: transform 1.2s ease;
   will-change: transform;
   pointer-events: none;
@@ -433,7 +438,7 @@ h6 br {
   visibility: hidden;
 }
 .preloader:not(.active) .preloader__background .layer:before {
-  transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-110%, 0, 0);
 }
 .preloader:not(.active) .preloader__image {
   opacity: 0;
@@ -871,9 +876,15 @@ h6 br {
 .blog-card__image {
   position: relative;
   overflow: hidden;
+  padding-top: 100%;
 }
 .blog-card__image > img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   transform: scale(1);
   transition: transform 500ms ease;
 }
@@ -2949,6 +2960,9 @@ h6 br {
   transform: translateY(-50%);
   left: 0;
 }
+.contact-one__form {
+  transition: 0.5s opacity;
+}
 .contact-one__form .row {
   margin-left: -10px;
   margin-right: -10px;
@@ -2957,9 +2971,23 @@ h6 br {
   padding-left: 10px;
   padding-right: 10px;
 }
+.contact-one__form--loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.contact-one__form .input-wrap {
+  margin-bottom: 20px;
+}
+.contact-one__form label.error {
+  margin-top: 5px;
+  color: #e50000;
+  font-size: 14px;
+  line-height: 1;
+}
 .contact-one__form textarea,
 .contact-one__form select,
 .contact-one__form input[type=text],
+.contact-one__form input[type=tel],
 .contact-one__form input[type=email] {
   width: 100%;
   height: 70px;
@@ -2967,12 +2995,35 @@ h6 br {
   padding-right: 30px;
   font-size: 16px;
   font-weight: 500;
-  color: var(--thm-color);
+  color: var(--thm-black);
   border: none;
   outline: none;
   display: block;
   background-color: var(--thm-gray);
-  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--thm-gray);
+  transition: 0.2s border-color;
+}
+.contact-one__form textarea.error,
+.contact-one__form select.error,
+.contact-one__form input[type=text].error,
+.contact-one__form input[type=tel].error,
+.contact-one__form input[type=email].error {
+  border-color: var(--thm-red-error);
+}
+.contact-one__form textarea.valid,
+.contact-one__form select.valid,
+.contact-one__form input[type=text].valid,
+.contact-one__form input[type=tel].valid,
+.contact-one__form input[type=email].valid {
+  border-color: var(--thm-green-success);
+}
+.contact-one__form textarea:focus,
+.contact-one__form select:focus,
+.contact-one__form input[type=text]:focus,
+.contact-one__form input[type=tel]:focus,
+.contact-one__form input[type=email]:focus {
+  border-color: var(--thm-primary);
 }
 .contact-one__form select {
   -moz-appearance: none;
@@ -2985,9 +3036,10 @@ h6 br {
 .contact-one__form textarea {
   height: 170px;
   padding-top: 15px;
+  resize: none;
 }
 .contact-one__form ::placeholder {
-  color: inherit;
+  color: var(--thm-color);
   opacity: 1;
 }
 .contact-one__form .thm-btn {
@@ -2995,9 +3047,27 @@ h6 br {
   font-weight: 800;
   padding: 20px 48px;
 }
-.contact-one__form .thm-btn:hover {
+.contact-one__form .thm-btn:hover, .contact-one__form .thm-btn:focus {
   background-color: var(--thm-black);
   color: #fff;
+}
+
+.contacts__result {
+  display: none;
+}
+.contacts__result p {
+  margin-bottom: 0;
+  margin-top: 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.contacts__result--success p {
+  background-color: var(--thm-green-success);
+  line-height: 1.1;
+}
+.contacts__result--error p {
+  background-color: var(--thm-red-error);
 }
 
 .online-booking {
@@ -3124,7 +3194,7 @@ h6 br {
     margin-top: 0;
   }
 }
-.online-booking__extra-list li .thm-btn:hover {
+.online-booking__extra-list li .thm-btn:hover, .online-booking__extra-list li .thm-btn:focus {
   background-color: var(--thm-black);
   color: #fff;
 }

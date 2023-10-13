@@ -31,6 +31,8 @@ class NewsResource extends Resource
 
     public static string $orderField = 'published_at';
 
+    protected string $routeAfterSave = 'edit'; // index, show, edit
+
 	public function fields(): array
 	{
 		return [
@@ -43,6 +45,8 @@ class NewsResource extends Resource
                             Text::make('Заголовок', 'title')
                                 ->required(),
                             Slug::make('Псевдоним', 'slug')
+                                ->unique()
+                                ->locked()
                                 ->from('title'),
                         ]),
 

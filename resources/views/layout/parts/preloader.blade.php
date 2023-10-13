@@ -36,5 +36,8 @@
 <!-- /.preloader -->
 <script>
     document.querySelector('.preloader').classList.add('active');
+    window.addEventListener('load', function() {
+        document.querySelector('.preloader').classList.remove('active');
+    });
 </script>
 

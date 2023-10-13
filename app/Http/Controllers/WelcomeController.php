@@ -11,7 +11,7 @@ class WelcomeController extends Controller
 {
     public function __invoke()
     {
-        $news = News::query()->limit(3)->orderBy('published_at', 'DESC')->get();
+        $news = News::query()->where('published', true)->limit(3)->orderBy('published_at', 'DESC')->get();
 
         return view('welcome', [
             'news' => $news,

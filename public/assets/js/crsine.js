@@ -64,6 +64,28 @@
         });
     }
 
+    if($.validator) {
+        $.extend($.validator.messages, {
+            required: "Это обязательное поле.",
+            remote: "Пожалуйста, исправьте это поле.",
+            email: "Пожалуйста, введите корректный email",
+            url: "Please enter a valid URL.",
+            date: "Please enter a valid date.",
+            dateISO: "Please enter a valid date (ISO).",
+            number: "Please enter a valid number.",
+            digits: "Please enter only digits.",
+            creditcard: "Please enter a valid credit card number.",
+            equalTo: "Please enter the same value again.",
+            accept: "Please enter a value with a valid extension.",
+            maxlength: $.validator.format("Please enter no more than {0} characters."),
+            minlength: $.validator.format("Please enter at least {0} characters."),
+            rangelength: $.validator.format("Please enter a value between {0} and {1} characters long."),
+            range: $.validator.format("Please enter a value between {0} and {1}."),
+            max: $.validator.format("Please enter a value less than or equal to {0}."),
+            min: $.validator.format("Please enter a value greater than or equal to {0}.")
+        });
+    }
+
     if($(".contact-form-validated").length) {
         $(".contact-form-validated").validate({
             // initialize the plugin
@@ -75,29 +97,54 @@
                     required: true,
                     email: true,
                 },
-                message: {
+                /*message: {
                     required: true,
-                },
+                },*/
                 subject: {
                     required: true,
                 },
             },
             submitHandler: function(form) {
                 // sending value with ajax request
-                $.post(
-                    $(form).attr("action"),
-                    $(form).serialize(),
-                    function(response) {
-                        $(form).parent().find(".result").append(response);
-                        $(form).find('input[type="text"]').val("");
-                        $(form).find('input[type="email"]').val("");
-                        $(form).find("textarea").val("");
-                    }
-                );
+                const result_success = document.querySelector('.contacts__result--success');
+                const result_error = document.querySelector('.contacts__result--error');
+                const $form = $(form);
+                $.ajax({
+                    url: $form.attr("action"),
+                    type: 'post',
+                    data: $form.serialize(),
+                    dataType: 'json',
+                    beforeSend: function() {
+                        $(result_success).stop().slideUp(400);
+                        $(result_error).stop().slideUp(400);
+                        $form.addClass('contact-one__form--loading');
+                    },
+                    complete: function() {
+                        $form.removeClass('contact-one__form--loading');
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            $form.find('.valid').removeClass('valid');
+                            $form.parent().find(".result").append(response);
+                            $form.find('input[type="text"]').val("");
+                            $form.find('input[type="tel"]').val("");
+                            $form.find('input[type="email"]').val("");
+                            $form.find("textarea").val("");
+                            $(result_success).stop().slideDown(400);
+                        }
+                        else
+                            this.error();
+                    },
+                    error: function(e) {
+                        $(result_error).stop().slideDown(400);
+                    },
+                });
                 return false;
             },
         });
     }
+    if(typeof $.mask != 'undefined')
+        $('input[type="tel"]').mask('+7 (999) 999-99-99');
 
     // mailchimp form
     if($(".mc-form").length) {
@@ -414,7 +461,6 @@
         /*if($(".preloader").length) {
             $(".preloader").fadeOut();
         }*/
-        document.querySelector('.preloader').classList.remove('active');
         thmSwiperInit();
         thmTinyInit();
         thmTestimonialsThumbCarousel();
@@ -604,11 +650,13 @@
     });
 
 
-    $('.js-tilt').tilt({
-        maxTilt: 20,
-        perspective: 700,
-        glare: true,
-        maxGlare: 0
-    });
+    if(document.querySelectorAll('.js-tilt').length) {
+        $('.js-tilt').tilt({
+            maxTilt: 20,
+            perspective: 700,
+            glare: true,
+            maxGlare: 0
+        });
+    }
 
 })(jQuery);

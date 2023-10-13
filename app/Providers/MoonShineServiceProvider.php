@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\FeedbackResource;
 use App\MoonShine\Resources\NewsResource;
 use App\MoonShine\Resources\SeoResource;
 use Illuminate\Support\ServiceProvider;
@@ -16,6 +17,11 @@ class MoonShineServiceProvider extends ServiceProvider
     public function boot(): void
     {
         app(MoonShine::class)->menu([
+            MenuItem::make('SEO', new SeoResource())->icon('heroicons.chat-bubble-left-ellipsis'),
+
+            MenuItem::make('Новости', new NewsResource())->icon('heroicons.academic-cap'),
+            MenuItem::make('Обратная связь', new FeedbackResource())->icon('heroicons.envelope'),
+
             MenuGroup::make('moonshine::ui.resource.system', [
                 MenuItem::make('moonshine::ui.resource.admins_title', new MoonShineUserResource())
                     ->translatable()
@@ -25,9 +31,6 @@ class MoonShineServiceProvider extends ServiceProvider
                     ->icon('bookmark'),
             ])->translatable(),
 
-            MenuItem::make('SEO', new SeoResource())->icon('heroicons.chat-bubble-left-ellipsis'),
-
-            MenuItem::make('Новости', new NewsResource())->icon('heroicons.academic-cap'),
 
 
             /*MenuItem::make('Documentation', 'https://laravel.com')

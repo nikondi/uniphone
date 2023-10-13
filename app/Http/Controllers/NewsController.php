@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\DB;
 class NewsController extends Controller
 {
     public function index() {
-        $posts = News::query()->limit(12)->get();
+        $posts = News::query()->where('published', true)->orderBy('published_at', 'DESC')->limit(12)->get();
 
         return view('news.index', compact(['posts']));
     }
 
     public function show($post_slug) {
-        $post = News::query()->where('slug', $post_slug)->first();
+        $post = News::query()->where('slug', $post_slug)->where('published', true)->first();
 
         if(is_null($post))
             abort(404);

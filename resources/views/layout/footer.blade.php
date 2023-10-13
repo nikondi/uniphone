@@ -36,7 +36,7 @@
                         <h3 class="footer-widget__title">Ссылки</h3><!-- /.footer-widget__title -->
                         <div class="footer-widget__links-wrap">
                             <ul class="list-unstyled">
-                                <li><a href="/vacancies/">Вакансии</a></li>
+                                <li><a href="#">Вакансии</a></li>
                             </ul><!-- /.list-unstyled -->
                             <ul class="list-unstyled">
 

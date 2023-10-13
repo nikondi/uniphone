@@ -1,7 +1,7 @@
 :root {
-    --thm-font: "Barlow", sans-serif;
-    --heading-font: "Barlow", sans-serif;
-    --special-font: "Barlow", sans-serif;
+    --thm-font: 'OpenSans', sans-serif;
+    --heading-font: 'Oswald', sans-serif;
+    --special-font: 'OpenSans', sans-serif;
     --thm-color: #727a84;
     --thm-color-rgb: 114, 122, 132;
     --thm-gray: #eef3f7;
@@ -22,7 +22,10 @@
     --thm-text-dark-rgb: 175, 192, 214;
     --thm-border: #e2e9f0;
     --thm-border-rgb: 226, 233, 240;
-
+    --thm-red-error: #ff3333;
+    --thm-red-error-rgb: 77, 179, 77;
+    --thm-green-success: #4db34d;
+    --thm-green-success-rgb: 255, 51, 51;
 }
 
 
@@ -395,9 +398,10 @@ p {
             &:before {
                 content: '';
                 display: block;
-                width: 100%;
+                width: 110%;
                 height: 100%;
                 background-color: $thm-base;
+                transform: translate3d(-5%, 0, 0);
                 transition: transform 1.2s ease;
                 will-change: transform;
                 pointer-events: none;
@@ -409,7 +413,7 @@ p {
         visibility: hidden;
     }
     &:not(.active) &__background .layer:before {
-        transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-110%, 0, 0);
     }
     &:not(.active) &__image {
         opacity: 0;
