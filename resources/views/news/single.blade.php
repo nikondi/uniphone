@@ -22,9 +22,9 @@
                     <div class="blog-details__content blog-card__content">
                         <x-news.card-meta :comments_count="2"/>
 
-                        <h3 class="blog-card__title">Get Some Useful Car Service Tips</h3>
+{{--                        <h3 class="blog-card__title">Get Some Useful Car Service Tips</h3>--}}
 
-                        <div class="blog-content">
+                        <div class="blog-content mt-4">
                             {!! $post->content !!}
                         </div>
                     </div><!-- /.blog-details__content -->

@@ -1,4 +1,4 @@
-<div class="preloader">
+<div class="preloader active">
     <svg width="238" height="96" viewBox="0 0 238 96" fill="none" xmlns="http://www.w3.org/2000/svg" class="preloader__image">
         <defs>
             <clipPath id="preloader-svg-clip" clipPathUnits="userSpaceOnUse">
@@ -27,10 +27,14 @@
         <path d="M75 65V34.5" stroke="#0f0f0f" stroke-width="5" clip-path="url(#preloader-svg-clip)" id="preloader-svg-i"/>
         <path d="M88.5 95.5L88.9997 47C88.7988 66.5 118.5 69 118.5 48.5C118.5 28.5 148 28 148 48.5C148 66.5 177.5 67.5 177.5 48.5C177.5 28.5 207 28 207 49C207 58 214.5 62.5 222.5 62.5" stroke="#0f0f0f" stroke-width="5" clip-path="url(#preloader-svg-clip)" id="preloader-svg-phone"/>
     </svg>
-
+    <div class="preloader__background">
+        <div class="layer layer-one"></div>
+        <div class="layer layer-two"></div>
+        <div class="layer layer-three"></div>
+    </div>
 </div>
 <!-- /.preloader -->
 <script>
-    document.querySelector('.preloader').style.display = 'flex';
+    document.querySelector('.preloader').classList.add('active');
 </script>
 

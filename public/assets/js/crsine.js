@@ -411,9 +411,10 @@
     // window load event
 
     $(window).on("load", function() {
-        if($(".preloader").length) {
+        /*if($(".preloader").length) {
             $(".preloader").fadeOut();
-        }
+        }*/
+        document.querySelector('.preloader').classList.remove('active');
         thmSwiperInit();
         thmTinyInit();
         thmTestimonialsThumbCarousel();
@@ -503,7 +504,8 @@
         pageWrapper.style.marginBottom = footer.getBoundingClientRect().height+'px';
     }
 
-    const hiddenFooter_media = window.matchMedia('(max-height: 700px) and (max-width: 768px)');
+    const hiddenFooter_media_x = window.matchMedia('(max-width: 768px)');
+    const hiddenFooter_media_y = window.matchMedia('(max-height: 700px)');
 
     const enableHiddenFooter = function() {
         updatePageMargin();
@@ -519,14 +521,15 @@
         pageWrapper.classList.remove('page-content--fhidden')
     }
     const checkHiddenFooter = function() {
-        if(hiddenFooter_media.matches)
+        if(hiddenFooter_media_x.matches || hiddenFooter_media_y.matches)
             disableHiddenFooter();
         else
             enableHiddenFooter();
     }
 
     checkHiddenFooter();
-    hiddenFooter_media.addListener(checkHiddenFooter);
+    hiddenFooter_media_x.addListener(checkHiddenFooter);
+    hiddenFooter_media_y.addListener(checkHiddenFooter);
 
 
     // Sticky navs of main slider
@@ -573,10 +576,13 @@
 
     let last_page_scroll;
     const header = document.querySelector('.stricky-header');
+    const headerTrigger = document.querySelector('.stricky-trigger');
     const headerScrollPos = 130;
     window.addEventListener('scroll', function() {
         if(window.pageYOffset > headerScrollPos) {
             let delta = window.pageYOffset-last_page_scroll;
+
+            headerTrigger.classList.add('active');
 
             if(delta != 0) {
                 if(delta > 0) {
@@ -587,8 +593,14 @@
             }
             last_page_scroll = window.pageYOffset;
         }
-        else
+        else {
             header.classList.remove('stricky-fixed');
+            headerTrigger.classList.remove('active');
+        }
+    });
+
+    headerTrigger.addEventListener('mouseover', function() {
+        header.classList.add('stricky-fixed');
     });
 
 

@@ -83,6 +83,7 @@
     <!-- /.main-menu -->
 </header><!-- /.main-header -->
 
-<div class="animated-custom stricky-header stricked-menu main-menu">
+<div class="stricky-header stricked-menu main-menu">
     <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
 </div><!-- /.stricky-header -->
+<div class="stricky-trigger"></div>
