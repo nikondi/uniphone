@@ -27,3 +27,6 @@ Route::get('/about/', AboutController::class)->name('about');
 Route::get('/contacts/', [FeedbackController::class, 'contacts'])->name('contacts');
 Route::post('/feedback/send/', [FeedbackController::class, 'send'])->name('feedback.send');
 
+Route::get('/camera/', function() {
+    return view('cameras');
+})->name('camera');

@@ -34,7 +34,7 @@
                         <div class="footer-widget__links-wrap">
                             <ul class="list-unstyled">
                                 <li><a href="#">Вакансии</a></li>
-                                <li><a href="#">Камеры</a></li>
+                                <li><a href="{{ route('camera') }}">Камеры</a></li>
                             </ul><!-- /.list-unstyled -->
                             <ul class="list-unstyled">
 
