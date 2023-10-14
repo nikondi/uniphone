@@ -6,13 +6,13 @@
                     <li class="topbar__infos-item">
                         <span class="topbar__infos-link">
                             <i class="far fa-clock"></i>
-                            Пн-Чт 08:00-18:00 Пт 08:00-17:00
+                            @settings('worktime')
                         </span>
                     </li>
                     <li class="topbar__infos-item">
-                        <a class="topbar__infos-link" href="tel:88005553535">
+                        <a class="topbar__infos-link" href="tel:{{ phone_link(settings('phone')) }}">
                             <i class="fa fa-phone-alt"></i>
-                            8 800 555-35-35
+                            @settings('phone')
                         </a>
                     </li>
                 </ul><!-- /.list-unstyled topbar__infos -->

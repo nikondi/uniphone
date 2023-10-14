@@ -33,6 +33,8 @@ class NewsResource extends Resource
 
     protected string $routeAfterSave = 'edit'; // index, show, edit
 
+
+
 	public function fields(): array
 	{
 		return [

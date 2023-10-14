@@ -11,6 +11,7 @@ use MoonShine\Fields\SwitchBoolean;
 use MoonShine\Fields\Text;
 use MoonShine\Fields\Textarea;
 use MoonShine\Filters\SwitchBooleanFilter;
+use MoonShine\ItemActions\ItemAction;
 use MoonShine\Metrics\ValueMetric;
 use MoonShine\Resources\Resource;
 use MoonShine\Fields\ID;
@@ -22,7 +23,7 @@ class FeedbackResource extends Resource
 
 	public static string $title = 'Обратная звязь';
 
-    public static array $activeActions = ['show', 'edit', 'delete'];
+    public static array $activeActions = ['show', 'delete'];
 
     public static string $orderField = 'created_at';
     public static string $orderType = 'DESC';
@@ -35,7 +36,8 @@ class FeedbackResource extends Resource
 		return [
             ID::make()
                 ->hideOnIndex(),
-            Text::make('Тема', 'subject')->readonly(),
+            Text::make('Тема', 'subject')
+                ->readonly(),
             Text::make('E-mail', 'email', function($item) {
                 return '<a href="mailto:'.$item->email.'">'.$item->email.'</a>';
             })->readonly(),
@@ -48,7 +50,8 @@ class FeedbackResource extends Resource
                 ->sortable()
                 ->default(date('d.m.Y H:i'))
                 ->readonly(),
-            SwitchBoolean::make('Просмотрено', 'viewed'),
+            SwitchBoolean::make('Просмотрено', 'viewed')
+                ->readonly(),
             Textarea::make('Сообщение', 'message')->readonly()->hideOnIndex(),
         ];
 	}
@@ -93,5 +96,17 @@ class FeedbackResource extends Resource
             return 'green';
         else
             return 'yellow';
+    }
+
+    public function itemActions(): array
+    {
+        return [
+            ItemAction::make('Прочитано', function (Model $item) {
+                $item->update(['viewed' => true]);
+            }, 'Deactivated')
+                ->icon('heroicons.check')
+                ->showInLine()
+                ->canSee(fn(Model $item) => !$item->viewed) ,
+        ];
     }
 }

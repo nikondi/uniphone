@@ -17,23 +17,24 @@
         <div class="container">
             <div class="section-title">
                 <span class="section-title__tagline">{{ __('Напишите нам') }}</span>
-                <h2 class="section-title__title">We’re Connected to Help You <br>
-                    All the Time</h2>
+                <h2 class="section-title__title">{!! __('Задайте интересующий вопрос<br /> или предложение') !!}</h2>
             </div><!-- /.section-title -->
             <div class="row">
                 <div class="col-lg-4">
                     <div class="contact-one__content">
-                        <p class="contact-one__text">There are many variations of passages of Lorem Ipsum available, but the
-                            majority have suffered alteration in some form, by injected humour.</p>
+                        <p class="contact-one__text">
+                            {!! __('Наши менеджеры ответят Вам как можно скорее. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam earum error impedit minima optio quibusdam quis, reiciendis repellendus sit velit?') !!}
+                        </p>
                         <p class="contact-one__address">г. Липецк <br>
                             ул. Бехтеева, д. 4</p><!-- /.contact-one__address -->
                         <ul class="contact-one__list list-unstyled">
                             <li>
-                                <a href="mailto:support@uniphone.su"><i class="fa fa-envelope"></i>support@uniphone.su</a>
+                                <a href="mailto:@settings('email_support')"><i class="fa fa-envelope"></i>@settings('email_support')</a>
                             </li>
                             <li>
-                                <a href="tel:92-666-888-000"><i class="fa fa-phone-square-alt"></i>92 666 888
-                                    000</a>
+                                <a href="tel:{{ phone_link(settings('phone')) }}"><i class="fa fa-phone-square-alt"></i>
+                                    @settings('phone')
+                                </a>
                             </li>
                         </ul><!-- /.list-unstyled -->
                     </div><!-- /.contact-one__content -->
