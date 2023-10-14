@@ -3,9 +3,9 @@
 @section('pagetitle', 'Контакты')
 
 @section('breadcrumbs')
-    <li><a href="{{ route('welcome') }}">{{ __('Главная') }}</a></li>
-    <li>/</li>
-    <li><span>{{ __('Контакты') }}</span></li>
+    <x-breadcrumbs.link :url="route('welcome')" :text="__('Главная')"/>
+    <x-breadcrumbs.separator/>
+    <x-breadcrumbs.static :text="__('Контакты')"/>
 @endsection
 
 @section('scripts-after-jquery')

@@ -3,9 +3,9 @@
 @section('pagetitle', 'О компании')
 
 @section('breadcrumbs')
-    <li><a href="{{ route('welcome') }}">{{ __('Главная') }}</a></li>
-    <li>/</li>
-    <li><span>{{ __('О компании') }}</span></li>
+    <x-breadcrumbs.link :url="route('welcome')" :text="__('Главная')"/>
+    <x-breadcrumbs.separator/>
+    <x-breadcrumbs.static :text="__('О компании')"/>
 @endsection
 
 

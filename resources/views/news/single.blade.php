@@ -3,9 +3,9 @@
 @section('pagetitle', $post->title)
 
 @section('breadcrumbs')
-    <li><a href="{{ route('welcome') }}">{{ __('Главная') }}</a></li>
-    <li>/</li>
-    <li><a href="{{ route('news') }}">{{ __('Новости') }}</a></li>
+    <x-breadcrumbs.link :url="route('welcome')" :text="__('Главная')"/>
+    <x-breadcrumbs.separator/>
+    <x-breadcrumbs.link :url="route('news')" :text="__('Новости')"/>
 @endsection
 
 @section('content')

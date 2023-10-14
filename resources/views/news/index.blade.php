@@ -1,9 +1,9 @@
 @extends('layout.base')
 
 @section('breadcrumbs')
-    <li><a href="{{ route('welcome') }}">{{ __('Главная') }}</a></li>
-    <li>/</li>
-    <li><span>{{ __('Новости') }}</span></li>
+    <x-breadcrumbs.link :url="route('welcome')" :text="__('Главная')"/>
+    <x-breadcrumbs.separator/>
+    <x-breadcrumbs.static :text="__('Новости')"/>
 @endsection
 
 @section('pagetitle', __('Новости'))
