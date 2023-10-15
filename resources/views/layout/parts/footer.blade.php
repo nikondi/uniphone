@@ -35,6 +35,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="#">Вакансии</a></li>
                                 <li><a href="{{ route('camera') }}">Камеры</a></li>
+                                <li><a href="{{ route('unibot.chat') }}">Чат с UniBot</a></li>
                             </ul><!-- /.list-unstyled -->
                             <ul class="list-unstyled">
 

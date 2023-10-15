@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UnibotController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\NewsController;
@@ -30,3 +31,7 @@ Route::post('/feedback/send/', [FeedbackController::class, 'send'])->name('feedb
 Route::get('/camera/', function() {
     return view('cameras');
 })->name('camera');
+
+Route::get('/unibot/', [UnibotController::class, 'chat'])->name('unibot.chat');
+Route::post('/unibot/send/', [UnibotController::class, 'send'])->name('unibot.send');
+

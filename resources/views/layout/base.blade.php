@@ -6,39 +6,37 @@
 
     @section('head')
         @seo
-        <!-- favicons Icons -->
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicons/apple-touch-icon.png') }}"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicons/favicon-32x32.png') }}"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicons/favicon-16x16.png') }}"/>
-        <link rel="manifest" href="{{ asset('assets/images/favicons/site.webmanifest') }}"/>
-        <link rel="mask-icon" href="{{ asset('assets/images/favicons/safari-pinned-tab.svg') }}" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+
+        @include('layout.parts.favicons')
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600&display=swap"
+            rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/animate/animate.min.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/jarallax/jarallax.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.min.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.pips.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/odometer/odometer.min.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/swiper/swiper.min.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/crsine-icons/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/vendors/tiny-slider/tiny-slider.min.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-fancybox/jquery.fancybox.min.css') }}">
-        <!-- template styles -->
-        <link rel="stylesheet" href="{{ asset('assets/css/crsine.css') }}"/>
+        @section('styles')
+            <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/animate/animate.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/jarallax/jarallax.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.pips.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/odometer/odometer.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/swiper/swiper.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/crsine-icons/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/vendors/tiny-slider/tiny-slider.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-fancybox/jquery.fancybox.min.css') }}">
+            <!-- template styles -->
+            <link rel="stylesheet" href="{{ asset('assets/css/crsine.css') }}"/>
+        @show
     @show
 </head>
 
 <body>
 @include('layout.parts.preloader')
 <div class="page-wrapper" id="page-wrapper">
-    @include('layout.header')
+    @include('layout.parts.header')
 
     <div id="page-content">
         @if(!isset($pageHeader) || $pageHeader)
@@ -49,121 +47,11 @@
         @show
     </div>
 
-    @include('layout.footer')
+    @include('layout.parts.footer')
 </div><!-- /.page-wrapper -->
 
 
-<div class="mobile-nav__wrapper">
-    <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-    <!-- /.mobile-nav__overlay -->
-    <div class="mobile-nav__content">
-        <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-
-        <div class="logo-box">
-            <a href="/" aria-label="logo image">
-                <img src="{{ asset('assets/images/logo-dark.svg') }}" width="160" alt=""/>
-            </a>
-        </div>
-        <!-- /.logo-box -->
-        <div class="mobile-nav__container"></div>
-        <!-- /.mobile-nav__container -->
-
-        <ul class="mobile-nav__contact list-unstyled">
-            <li>
-                <i class="fa fa-envelope"></i>
-                <a href="mailto:needhelp@packageName__.com">needhelp@crsine.com</a>
-            </li>
-            <li>
-                <i class="fa fa-phone-alt"></i>
-                <a href="tel:666-888-0000">666 888 0000</a>
-            </li>
-        </ul><!-- /.mobile-nav__contact -->
-        <div class="mobile-nav__top">
-            <div class="mobile-nav__social">
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-facebook-square"></a>
-                <a href="#" class="fab fa-pinterest-p"></a>
-                <a href="#" class="fab fa-instagram"></a>
-            </div><!-- /.mobile-nav__social -->
-        </div><!-- /.mobile-nav__top -->
-
-
-    </div>
-    <!-- /.mobile-nav__content -->
-</div>
-<!-- /.mobile-nav__wrapper -->
-
-
-<div class="mini-cart">
-    <div class="mini-cart__overlay mini-cart__toggler"></div>
-    <div class="mini-cart__content">
-        <div class="mini-cart__top">
-            <h3 class="mini-cart__title">Shopping Cart</h3>
-            <span class="mini-cart__close mini-cart__toggler"><i class="organik-icon-close"></i></span>
-        </div><!-- /.mini-cart__top -->
-        <div class="mini-cart__item">
-            <img src="assets/images/products/product-s-1.jpg" alt="">
-            <div class="mini-cart__item-content">
-                <div class="mini-cart__item-top">
-                    <h3><a href="product-details.html">Tire with Wheel </a></h3>
-                    <p>$3.99</p>
-                </div><!-- /.mini-cart__item-top -->
-                <div class="quantity-box">
-                    <button type="button" class="sub">-</button>
-                    <input type="number" id="1" value="1"/>
-                    <button type="button" class="add">+</button>
-                </div>
-            </div><!-- /.mini-cart__item-content -->
-        </div><!-- /.mini-cart__item -->
-        <div class="mini-cart__item">
-            <img src="assets/images/products/product-s-2.jpg" alt="">
-            <div class="mini-cart__item-content">
-                <div class="mini-cart__item-top">
-                    <h3><a href="product-details.html">Car Breaks </a></h3>
-                    <p>$120.99</p>
-                </div><!-- /.mini-cart__item-top -->
-                <div class="quantity-box">
-                    <button type="button" class="sub">-</button>
-                    <input type="number" id="2" value="1"/>
-                    <button type="button" class="add">+</button>
-                </div>
-            </div><!-- /.mini-cart__item-content -->
-        </div><!-- /.mini-cart__item -->
-        <div class="mini-cart__item">
-            <img src="assets/images/products/product-s-3.jpg" alt="">
-            <div class="mini-cart__item-content">
-                <div class="mini-cart__item-top">
-                    <h3><a href="product-details.html">Oil Filters </a></h3>
-                    <p>$9.99</p>
-                </div><!-- /.mini-cart__item-top -->
-                <div class="quantity-box">
-                    <button type="button" class="sub">-</button>
-                    <input type="number" id="3" value="1"/>
-                    <button type="button" class="add">+</button>
-                </div>
-            </div><!-- /.mini-cart__item-content -->
-        </div><!-- /.mini-cart__item -->
-        <a href="checkout.html" class="thm-btn mini-cart__checkout">Proceed To Checkout <i
-                class="far fa-arrow-alt-circle-right"></i></a>
-    </div><!-- /.mini-cart__content -->
-</div><!-- /.cart-toggler -->
-
-
-<div class="search-popup">
-    <div class="search-popup__overlay search-toggler"></div>
-    <!-- /.search-popup__overlay -->
-    <div class="search-popup__content">
-        <form action="#">
-            <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
-            <input type="text" id="search" placeholder="Search Here..."/>
-            <button type="submit" aria-label="search submit" class="thm-btn">
-                <i class="crsine-magnifying-glass"></i>
-            </button>
-        </form>
-    </div>
-    <!-- /.search-popup__content -->
-</div>
-<!-- /.search-popup -->
+@include('layout.parts.mobile-nav')
 
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
