@@ -1,0 +1,189 @@
+.unibot-section {
+    padding-top: 25px;
+    padding-bottom: 15px;
+
+    background: linear-gradient(99deg, #4C4094 -17.33%, #6B61A6 67.36%, #423D5B 112.75%, #0053FF 112.75%);
+
+    height: 100vh;
+
+    @include medium-mobile {
+        padding-bottom: 35px;
+    }
+    @include tablet {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    > .container {
+        height: 100%;
+    }
+}
+
+.unibot-wrap {
+    display: flex;
+    height: 100%;
+}
+
+.unibot-left {
+    display: flex;
+    align-items: flex-end;
+    padding-right: 20px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+
+    .unibot-bot {
+        &__background {
+            animation: floating 6s ease-in-out infinite;
+            animation-delay: 300ms;
+        }
+        /*&__round {
+            animation: floating 6s ease-in-out infinite;
+            animation-delay: 400ms;
+        }*/
+        &__other {
+            animation: floating 6s ease-in-out infinite;
+        }
+        @media (max-width: 992px) {
+            width: 100px;
+        }
+    }
+}
+.unibot-right {
+    flex: 1;
+}
+
+.unibot-chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.unibot-form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    width: 100%;
+    @media (max-width: 768px) {
+        padding: 4px;
+    }
+    &__input {
+        flex: 1;
+        font-size: 16px;
+        border: 0;
+        border-radius: 6px;
+        padding: 8px 12px;
+        line-height: 1;
+        margin-right: 8px;
+        transition: .3s background-color;
+
+        &:focus {
+            outline: none;
+            background-color: #f1f1f1;
+        }
+
+        ::placeholder {
+            color: $thm-color;
+        }
+        @media (max-width: 768px) {
+            padding: 5px 8px;
+            margin-right: 4px;
+        }
+    }
+    &__send {
+        background: none;
+        border: 0;
+        padding: 5px 12px;
+        transition: .3s color;
+
+        &:focus,
+        &:hover {
+            outline: none;
+            color: $thm-primary;
+        }
+    }
+}
+
+.unibot-messages {
+    flex: 1;
+    overflow: auto;
+    padding: 75px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    &__space {
+        flex: 1;
+    }
+    @media (max-width: 768px) {
+        padding-top: 125px;
+    }
+}
+
+.unibot-message {
+    border-radius: 12px 12px 12px 4px;
+    background-color: #ffffff;
+    color: #222222;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    max-width: 40%;
+    line-height: 1.15;
+
+    @media (max-width: 992px) {
+        max-width: 48%;
+    }
+    @media (max-width: 768px) {
+        max-width: 80%;
+    }
+
+    &--user {
+        border-radius: 12px 12px 4px 12px;
+        align-self: flex-end;
+        background-color: $thm-primary;
+        color: #FFFFFF;
+    }
+}
+
+.unibot-loading {
+    color: #ffffff;
+    font-size: 16px;
+    align-items: center;
+    display: none;
+    .loader-circles {
+        margin-right: 2.2em;
+    }
+}
+
+
+.loader-circles {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    font-size: 10px;
+    position: relative;
+    border-radius: 50%;
+    color: #FFFFFF;
+    animation: loader-fill 1s ease-in infinite alternate;
+    margin: 0 1.4em;
+}
+.loader-circles::before, .loader-circles::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    left: 1.4em;
+    top: 0;
+    width: 1em;
+    height: 1em;
+    animation: loader-fill 0.9s ease-in infinite alternate;
+}
+
+.loader-circles::after {
+    left: auto;
+    right: 1.4em;
+    animation-duration: 1.1s;
+}
+
+@keyframes loader-fill {
+    0% {  box-shadow: 0 0 0 1px inset }
+    100%{ box-shadow: 0 0 0 7px inset }
+}
