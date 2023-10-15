@@ -225,11 +225,11 @@
         let mobileNavContainer = document.querySelector(".mobile-nav__container");
         mobileNavContainer.innerHTML = navContent;
     }
-    if($(".sticky-header__content").length) {
+    /*if($(".sticky-header__content").length) {
         let navContent = document.querySelector(".main-menu").innerHTML;
         let mobileNavContainer = document.querySelector(".sticky-header__content");
         mobileNavContainer.innerHTML = navContent;
-    }
+    }*/
 
     if($(".mobile-nav__container .main-menu__list").length) {
         let dropdownAnchor = $(
@@ -622,32 +622,33 @@
 
     let last_page_scroll;
     const header = document.querySelector('.stricky-header');
-    const headerTrigger = document.querySelector('.stricky-trigger');
-    const headerScrollPos = 130;
-    window.addEventListener('scroll', function() {
-        if(window.pageYOffset > headerScrollPos) {
-            let delta = window.pageYOffset-last_page_scroll;
+    if(!header.classList.contains('stricky-header--static')) {
+        const headerTrigger = document.querySelector('.stricky-trigger');
+        const headerScrollPos = 130;
+        window.addEventListener('scroll', function() {
+            if(window.pageYOffset > headerScrollPos) {
+                let delta = window.pageYOffset-last_page_scroll;
 
-            headerTrigger.classList.add('active');
+                headerTrigger.classList.add('active');
 
-            if(delta != 0) {
-                if(delta > 0) {
-                    if(window.pageYOffset > headerScrollPos)
-                        header.classList.remove('stricky-fixed');
-                } else if((window.innerHeight+window.pageYOffset) < document.body.offsetHeight)
-                    header.classList.add('stricky-fixed');
+                if(delta != 0) {
+                    if(delta > 0) {
+                        if(window.pageYOffset > headerScrollPos)
+                            header.classList.remove('stricky-fixed');
+                    } else if((window.innerHeight+window.pageYOffset) < document.body.offsetHeight)
+                        header.classList.add('stricky-fixed');
+                }
+                last_page_scroll = window.pageYOffset;
+            } else {
+                header.classList.remove('stricky-fixed');
+                headerTrigger.classList.remove('active');
             }
-            last_page_scroll = window.pageYOffset;
-        }
-        else {
-            header.classList.remove('stricky-fixed');
-            headerTrigger.classList.remove('active');
-        }
-    });
+        });
 
-    headerTrigger.addEventListener('mouseover', function() {
-        header.classList.add('stricky-fixed');
-    });
+        headerTrigger.addEventListener('mouseover', function() {
+            header.classList.add('stricky-fixed');
+        });
+    }
 
 
     if(document.querySelectorAll('.js-tilt').length) {
@@ -657,6 +658,78 @@
             glare: true,
             maxGlare: 0
         });
+    }
+
+    const uniForm = document.querySelector('.unibot-form');
+    if(uniForm) {
+        const uniMessages = document.querySelector('.unibot-messages');
+        const uniLoader = document.querySelector('.unibot-loading');
+        const uniInput = document.querySelector('.unibot-form__input');
+
+        uniForm.onsubmit = function(e) {
+            e.preventDefault();
+
+            if(uniInput.value.trim() == '')
+                return;
+
+            $.ajax({
+                type: 'post',
+                url: uniForm.action,
+                data: $(uniForm).serialize(),
+                beforeSend: function() {
+                    uniMessages.innerHTML += '<div class="unibot-message unibot-message--user"><div class="unibot-message__text">'+uniInput.value.trim()+'</div></div>';
+                    uniLoader.style.display = 'flex';
+                    uniMessages.scrollTop = uniMessages.scrollHeight;
+                },
+                complete: function() {
+                    uniInput.value = '';
+                    uniLoader.style.display = 'none';
+                    uniMessages.scrollTop = uniMessages.scrollHeight;
+                },
+                success: function(response) {
+                    if(response.messages) {
+                        response.messages.forEach(function(message) {
+                            uniMessages.innerHTML += '<div class="unibot-message"><div class="unibot-message__text">'+message.text+'</div></div>';
+                            uniMessages.scrollTop = uniMessages.scrollHeight;
+                        });
+                    }
+                },
+                error: function() {
+
+                }
+            })
+        };
+    }
+
+    const main_news = document.querySelector('.main-news');
+    if(main_news) {
+        const mn_breakpoint = window.matchMedia('(min-width: 992px');
+
+        const enableMNSwiper = function() {
+            main_news.slider = new Swiper(main_news, {
+                slidesPerView: 1,
+                loop: false,
+                observer: true,
+                spaceBetween: 30,
+                breakpoints: {
+                    767: {
+                        slidesPerView: 2,
+                    },
+                },
+            });
+        };
+
+        const mnBreakpointChecker = function() {
+            if(mn_breakpoint.matches) {
+                if(main_news.slider !== undefined)
+                    main_news.slider.destroy(true, true);
+                return;
+            } else {
+                return enableMNSwiper();
+            }
+        };
+        mn_breakpoint.addListener(mnBreakpointChecker);
+        mnBreakpointChecker();
     }
 
 })(jQuery);

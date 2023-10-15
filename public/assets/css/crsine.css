@@ -2330,7 +2330,7 @@ h6 br {
 
 .mobile-nav__content {
   width: 300px;
-  background-color: var(--thm-black);
+  background-color: #1a1438;
   z-index: 10;
   position: relative;
   height: 100%;
@@ -7487,6 +7487,26 @@ h6 br {
 .main-video__link:hover:before {
   width: 105%;
   height: 105%;
+}
+
+.main-news {
+  overflow: visible;
+}
+.main-news .swiper-wrapper {
+  align-items: stretch;
+}
+.main-news__slide {
+  height: auto;
+}
+@media (min-width: 992px) {
+  .main-news .swiper-wrapper {
+    margin: 0 -15px;
+    width: auto;
+  }
+  .main-news__slide {
+    width: 33.333%;
+    padding: 0 15px;
+  }
 }
 
 /*--------------------------------------------------------------

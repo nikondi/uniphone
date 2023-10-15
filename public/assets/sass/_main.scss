@@ -180,3 +180,23 @@
         }
     }
 }
+
+.main-news {
+    overflow: visible;
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+    &__slide {
+        height: auto;
+    }
+    @include large-tablet {
+        .swiper-wrapper {
+            margin: 0 -15px;
+            width: auto;
+        }
+        &__slide {
+            width: 33.333%;
+            padding: 0 15px;
+        }
+    }
+}

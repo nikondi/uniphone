@@ -22,7 +22,7 @@
                             <div class="col-lg-8">
                                 <h2>Добро пожаловать<br>
                                     в <span class="text-primary">UNIPHONE</span></h2>
-                                <a href="online-booking.html" class="thm-btn">Подробнее <i class="far fa-arrow-alt-circle-right"></i></a>
+                                <a href="#" class="thm-btn">Подробнее <i class="far fa-arrow-alt-circle-right"></i></a>
                                 <!-- /.thm-btn dynamic-radius -->
                             </div><!-- /.col-lg-7 text-right -->
                         </div><!-- /.row -->
@@ -66,38 +66,34 @@
                     <div class="section-title wow slideInUp" data-wow-delay="0ms" data-wow-duration="1100ms">
                         <h2 class="section-title__title">СКУД <span class="text-primary">Uniphone</span></h2>
                     </div>
-                    <div class="wow fadeIn" data-wow-delay="300ms" data-wow-duration="1100ms">
-                        <div class="main-about__description wow slideInUp fadeIn" data-wow-delay="300ms" data-wow-duration="1100ms">
-                            <p>
-                                Система контроля и управления доступом это инновационная разработка Uniphone. Такая только у нас и у Майкла Джексона
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis delectus enim error facere iste itaque magnam, maxime necessitatibus pariatur possimus, recusandae unde veritatis! Aperiam consequuntur dolorem doloremque earum expedita libero, magni non quaerat quas quod, repellat sed totam, vero! Amet atque debitis dolore eos ex, exercitationem molestias officiis sapiente.
-                            </p>
-                        </div><!-- /.about-two__summery -->
-                    </div>
-                    <div class="wow fadeIn" data-wow-delay="600ms" data-wow-duration="1100ms">
-                        <ul class="about-two__list list-unstyled wow slideInUp" data-wow-delay="600ms" data-wow-duration="1100ms">
-                            <li>
-                                <i class="fa fa-check-circle"></i>
-                                Безопасность и антивандальность
-                            </li>
-                            <li>
-                                <i class="fa fa-check-circle"></i>
-                                Удобство в использовании
-                            </li>
-                            <li>
-                                <i class="fa fa-check-circle"></i>
-                                Вызов экстренных служб
-                            </li>
-                        </ul><!-- /.about-two__list -->
-                        <div class="wow fadeIn" data-wow-delay="900ms" data-wow-duration="1100ms">
-                            <a href="#" class="thm-btn thm-btn--default wow slideInUp" data-wow-delay="900ms" data-wow-duration="1100ms">
-                                Подробнее
-                                <i class="far fa-arrow-alt-circle-right"></i>
-                            </a><!-- /.thm-btn -->
-                        </div>
-                    </div>
+
+                    <div class="main-about__description wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1100ms">
+                        <p>
+                            Система контроля и управления доступом это инновационная разработка Uniphone. Такая только у нас и у Майкла Джексона
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis delectus enim error facere iste itaque magnam, maxime necessitatibus pariatur possimus, recusandae unde veritatis! Aperiam consequuntur dolorem doloremque earum expedita libero, magni non quaerat quas quod, repellat sed totam, vero! Amet atque debitis dolore eos ex, exercitationem molestias officiis sapiente.
+                        </p>
+                    </div><!-- /.about-two__summery -->
+
+                    <ul class="about-two__list list-unstyled wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1100ms">
+                        <li>
+                            <i class="fa fa-check-circle"></i>
+                            Безопасность и антивандальность
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle"></i>
+                            Удобство в использовании
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle"></i>
+                            Вызов экстренных служб
+                        </li>
+                    </ul><!-- /.about-two__list -->
+                    <a href="#" class="thm-btn thm-btn--default wow fadeInUp" data-wow-delay="900ms" data-wow-duration="1100ms">
+                        Подробнее
+                        <i class="far fa-arrow-alt-circle-right"></i>
+                    </a><!-- /.thm-btn -->
 
                 </div>
             </div>
@@ -115,38 +111,32 @@
                     <div class="section-title wow slideInUp" data-wow-delay="0ms" data-wow-duration="1100ms">
                         <h2 class="section-title__title">Тамбурные двери <span class="text-primary">Uniphone</span></h2>
                     </div>
-                    <div class="wow fadeIn" data-wow-delay="300ms" data-wow-duration="1100ms">
-                        <div class="main-about__description wow slideInUp fadeIn" data-wow-delay="300ms" data-wow-duration="1100ms">
-                            <p>
-                                Система контроля и управления доступом это инновационная разработка Uniphone. Такая только у нас и у Майкла Джексона
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis delectus enim error facere iste itaque magnam, maxime necessitatibus pariatur possimus, recusandae unde veritatis! Aperiam consequuntur dolorem doloremque earum expedita libero, magni non quaerat quas quod, repellat sed totam, vero! Amet atque debitis dolore eos ex, exercitationem molestias officiis sapiente.
-                            </p>
-                        </div><!-- /.about-two__summery -->
-                    </div>
-                    <div class="wow fadeIn" data-wow-delay="600ms" data-wow-duration="1100ms">
-                        <ul class="about-two__list list-unstyled wow slideInUp" data-wow-delay="600ms" data-wow-duration="1100ms">
-                            <li>
-                                <i class="fa fa-check-circle"></i>
-                                Безопасность и антивандальность
-                            </li>
-                            <li>
-                                <i class="fa fa-check-circle"></i>
-                                Удобство в использовании
-                            </li>
-                            <li>
-                                <i class="fa fa-check-circle"></i>
-                                Вызов экстренных служб
-                            </li>
-                        </ul><!-- /.about-two__list -->
-                        <div class="wow fadeIn" data-wow-delay="900ms" data-wow-duration="1100ms">
-                            <a href="#" class="thm-btn thm-btn--default wow slideInUp" data-wow-delay="900ms" data-wow-duration="1100ms">
-                                Подробнее
-                                <i class="far fa-arrow-alt-circle-right"></i>
-                            </a><!-- /.thm-btn -->
-                        </div>
-                    </div>
+                    <div class="main-about__description wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1100ms">
+                        <p>
+                            Система контроля и управления доступом это инновационная разработка Uniphone. Такая только у нас и у Майкла Джексона
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis delectus enim error facere iste itaque magnam, maxime necessitatibus pariatur possimus, recusandae unde veritatis! Aperiam consequuntur dolorem doloremque earum expedita libero, magni non quaerat quas quod, repellat sed totam, vero! Amet atque debitis dolore eos ex, exercitationem molestias officiis sapiente.
+                        </p>
+                    </div><!-- /.about-two__summery -->
+                    <ul class="about-two__list list-unstyled wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1100ms">
+                        <li>
+                            <i class="fa fa-check-circle"></i>
+                            Безопасность и антивандальность
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle"></i>
+                            Удобство в использовании
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle"></i>
+                            Вызов экстренных служб
+                        </li>
+                    </ul><!-- /.about-two__list -->
+                    <a href="#" class="thm-btn thm-btn--default wow fadeInUp" data-wow-delay="900ms" data-wow-duration="1100ms">
+                        Подробнее
+                        <i class="far fa-arrow-alt-circle-right"></i>
+                    </a><!-- /.thm-btn -->
 
                 </div>
             </div>
@@ -1144,13 +1134,14 @@
                     </div><!-- /.blog-home__top-text -->--}}
 
                 </div><!-- /.blog-home__top -->
-                <div class="row">
-                    @foreach($news as $k => $post)
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <x-news.card :$post class="wow flipInY" data-wow-duration="1100ms" data-wow-delay="{{ $k * 300 }}ms"/>
-                        </div>
-                    @endforeach
-                </div><!-- /.row -->
+                <div class="swiper-container main-news">
+                    <div class="swiper-wrapper">
+                        @foreach($news as $k => $post)
+                            <div class="swiper-slide main-news__slide">
+                                <x-news.card :$post class="wow flipInY" data-wow-duration="1100ms" data-wow-delay="{{ $k * 300 }}ms"/>
+                            </div>
+                        @endforeach
+                </div><!-- /.swiper-container thm-swiper__slider -->
             </div><!-- /.container -->
         </section><!-- /.blog-home -->
     @endif
