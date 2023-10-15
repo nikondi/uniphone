@@ -1,6 +1,9 @@
 .blog-card {
     position: relative;
-    background-color: #fff;
+    background-color: $thm-white;
+    @include dark-theme {
+        background-color: $thm-gray;
+    }
     box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
@@ -465,6 +468,9 @@
                 padding-left: 126px;
                 transition: all 500ms ease;
                 border-top: 1px solid #ffffff;
+                @include dark-theme {
+                    border-color: #666666;
+                }
                 margin-top: 30px;
                 padding-top: 30px;
                 padding-right: 30px;

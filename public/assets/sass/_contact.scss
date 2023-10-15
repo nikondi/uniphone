@@ -130,9 +130,13 @@
             resize: none;
         }
 
-        ::placeholder {
+        &::placeholder {
             color: $thm-color;
-            opacity: 1;
+            opacity: 1; /* Firefox */
+        }
+
+        &::-ms-input-placeholder { /* Edge 12 -18 */
+            color: $thm-color;
         }
 
         .thm-btn {

@@ -69,13 +69,19 @@
   position: absolute;
   bottom: 0;
   right: 15px;
-  background-color: #fff;
+  background-color: #FFFFFF;
   padding: (51-16)/2*1px 40px;
+    @include dark-theme {
+        background-color: #222222;
+    }
 
   li {
     font-size: 16px;
     font-weight: 500;
     color: $thm-black;
+      @include dark-theme {
+          color: #ffffff;
+      }
     line-height: 1;
     display: flex;
     align-items: center;

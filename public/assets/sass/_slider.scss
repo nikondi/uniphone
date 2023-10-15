@@ -6,6 +6,9 @@
     .swiper-slide {
         position: relative;
         background-color: $thm-black;
+        @include dark-theme {
+            background-color: #1a1438;
+        }
         height: auto;
 
         &::before {

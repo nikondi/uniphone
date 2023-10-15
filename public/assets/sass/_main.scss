@@ -3,6 +3,9 @@
 
     &--gray {
         background-color: #f7f7f7;
+        @include dark-theme {
+            background-color: #444444;
+        }
     }
     &--reverse &__row {
         flex-direction: row-reverse;

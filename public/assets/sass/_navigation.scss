@@ -1,19 +1,22 @@
 .topbar {
     display: none;
+    background-color: rgba($thm-black-rgb, .7);
+
+    @media (prefers-color-scheme: dark) {
+        background-color: rgba(#222222, .7);
+    }
+
 
     @include tablet {
         display: block;
     }
 
+
     &__inner {
-        padding-top: 16px;
-        padding-bottom: 16px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        background-color: $thm-black;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding: 16px 30px;
     }
 
     &__infos {
@@ -222,20 +225,32 @@
     z-index: 991;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: $thm-white;
     width: 100%;
     visibility: hidden;
-    transform: translateY(-120%);
+    transform: translate3d(0, -120%, 0);
     transition: transform 500ms ease, visibility 500ms ease;
+    will-change: transform;
     box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
 
     @media (max-width: 1199px) {
         display: none;
     }
 
+    &--static {
+        position: static;
+        transform: none;
+        visibility: visible;
+    }
+
+    &.is-hided {
+        transform: translate3d(0, -120%, 0);
+        height: 0;
+    }
+
 
     &.stricky-fixed {
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
         visibility: visible;
     }
 
@@ -244,12 +259,13 @@
         padding-right: 0;
     }
 }
+
 .stricky-trigger {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 175px;
+    height: 109px;
     z-index: 990;
     &:not(.active) {
         display: none;
@@ -304,7 +320,7 @@
         position: relative;
         padding-left: 276px;
         padding-right: 30px;
-        background-color: #fff;
+        background-color: $thm-white;
         box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
 
         @media(max-width: 1199px) {
@@ -347,6 +363,9 @@
         display: flex;
         align-items: center;
 
+        @media (prefers-color-scheme: dark) {
+            border-color: #666666;
+        }
         @media (max-width: 1199px) {
             border-left: 0;
         }
@@ -354,6 +373,7 @@
         @media(max-width: 425px) {
             padding-left: 0;
         }
+
     }
 
     &__search,
@@ -387,7 +407,7 @@
         }
 
         &:hover {
-            background-color: $thm-black;
+            background-color: $thm-base-hover;
             color: #fff;
         }
     }
@@ -437,7 +457,7 @@
 
     .main-menu__logo {
         position: relative;
-        background-color: #fff;
+        background-color: $thm-white;
         clip-path: none;
         top: auto;
         min-height: auto;
