@@ -75,8 +75,15 @@ class NewsResource extends Resource
                         Collapse::make('Изображения', [
                             Image::make('Обложка', 'thumbnail')
                                 ->disk('public')
-                                ->dir('news')
+                                ->dir('news/thumbs')
                                 ->removable()
+                                ->allowedExtensions(['png', 'jpg', 'webm'])
+                                ->hideOnIndex(),
+                            Image::make('Большие изображения', 'pictures')
+                                ->disk('public')
+                                ->dir('news/big')
+                                ->removable()
+                                ->multiple()
                                 ->allowedExtensions(['png', 'jpg', 'webm'])
                                 ->hideOnIndex(),
                         ]),

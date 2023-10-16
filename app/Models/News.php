@@ -25,7 +25,7 @@ class News extends Model
     protected $fillable = [
         'title', 'slug',
         'content', 'short',
-        'thumbnail',
+        'thumbnail', 'pictures',
         'seo_title', 'seo_description',
         'published', 'published_at',
     ];
@@ -33,6 +33,7 @@ class News extends Model
     protected $casts = [
         'id' => 'integer',
         'published_at' => 'datetime',
+        'pictures' => 'collection',
     ];
 
     public function getThumbnail() {
@@ -40,5 +41,17 @@ class News extends Model
             return Storage::disk('public')->url($this->thumbnail);
         else
             return asset('assets/images/no-image_370x370.svg');
+    }
+    public function getPictures() {
+        if(!is_null($this->pictures)) {
+            $pictures = [];
+            foreach($this->pictures as $picture) {
+                if(Storage::disk('public')->exists($picture))
+                    $pictures[] = Storage::disk('public')->url($picture);
+            }
+            return empty($pictures)?[]:$pictures;
+        }
+        else
+            return [];
     }
 }

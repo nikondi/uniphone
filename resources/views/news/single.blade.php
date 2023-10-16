@@ -1,3 +1,8 @@
+<?php
+    /**
+     * @var \App\Models\News $post
+     */
+?>
 @extends('layout.base')
 
 @section('pagetitle', $post->title)
@@ -15,7 +20,25 @@
                 <div class="col-md-12 col-lg-8">
                     <div class="blog-card__image blog-details__image">
                         <x-news.card-date :date="$post->published_at" class="blog-details__date"/>
-                        <img src="{{ $post->getThumbnail() }}" class="img-fluid" alt="">
+                        @php $pictures = $post->getPictures() @endphp
+                        @if(!empty($pictures))
+                            @if(sizeof($pictures) > 1)
+                                <div class="swiper-container post-pictures">
+                                    <div class="swiper-wrapper">
+                                        @foreach($post->getPictures() as $picture)
+                                            <div class="swiper-slide post-picture">
+                                                <a href="{{ $picture }}" class="lightbox-image">
+                                                    <img src="{{ $picture }}" alt="">
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="slider-dots post-pictures__paginate"></div>
+                                </div>
+                            @else
+                                <img src="{{ $pictures[0] }}" alt="">
+                            @endif
+                        @endif
                     </div><!-- /.blog-card__image -->
 
 
