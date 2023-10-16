@@ -111,7 +111,7 @@
 }
 
 .preloader:not(.active),
-.preloader.hidden {
+.preloader.preloader--hidden {
     visibility: hidden;
 }
 

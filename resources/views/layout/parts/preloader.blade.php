@@ -35,11 +35,9 @@
 </div>
 <!-- /.preloader -->
 <script>
-    document.querySelector('.preloader').classList.remove('hidden');
+    document.querySelector('.preloader').classList.remove('preloader--hidden');
     document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-            document.querySelector('.preloader').classList.remove('active');
-        }, 200);
+        document.querySelector('.preloader').classList.remove('active');
     });
 </script>
 
