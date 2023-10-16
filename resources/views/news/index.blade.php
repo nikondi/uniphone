@@ -19,13 +19,7 @@
                 @endforeach
             </div><!-- /.row -->
 
-            <ul class="list-unstyled post-pagination d-flex justify-content-center align-items-center">
-                <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                <li><a href="#">01</a></li>
-                <li><a href="#">02</a></li>
-                <li><a href="#">03</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-            </ul><!-- /.post-pagination -->
+            {{ $posts->onEachSide(2)->links('layout.parts.paginate') }}
 
         </div><!-- /.container -->
     </section><!-- /.news-page -->

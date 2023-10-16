@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class NewsController extends Controller
 {
     public function index() {
-        $posts = News::query()->where('published', true)->orderBy('published_at', 'DESC')->limit(12)->get();
+        $posts = News::query()->where('published', true)->orderBy('published_at', 'DESC')->paginate(12);
 
         return view('news.index', compact(['posts']));
     }
@@ -20,7 +20,7 @@ class NewsController extends Controller
         if(is_null($post))
             abort(404);
 
-        $sidebar_posts = News::orderByRaw('RAND()')->take(3)->get();;
+        $sidebar_posts = News::orderByRaw('RAND()')->take(3)->get();
 
         $seo_title = empty($post->seo_title)?$post->title:$post->seo_title;
         $seo_title .= ' - '.env('APP_NAME');
