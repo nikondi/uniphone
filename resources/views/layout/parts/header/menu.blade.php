@@ -13,7 +13,7 @@
             <div class="main-menu__right">
                 {{--                    <a href="#" class="main-menu__search search-toggler crsine-magnifying-glass"></a>--}}
                 {{--                    <a href="#" class="main-menu__cart crsine-shopping-cart mini-cart__toggler"></a>--}}
-                <a href="online-booking.html" class="thm-btn thm-btn--iconleft">
+                <a href="#" class="thm-btn thm-btn--iconleft">
                     <i class="far fa-user"></i>
                     {{ __('Личный кабинет') }}
                 </a><!-- /.thm-btn -->

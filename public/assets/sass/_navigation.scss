@@ -278,6 +278,9 @@
     &:not(.active) {
         display: none;
     }
+    @media (max-width: 1199px) {
+        display: none;
+    }
 }
 
 .mobile-nav__buttons {

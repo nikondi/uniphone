@@ -16,18 +16,18 @@
             rel="stylesheet">
 
         @section('styles')
-            <link rel="stylesheet" href="{{ asset('assets/css/preloader.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/preloader.css') }}"/>
 
             <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('assets/vendors/animate/animate.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('assets/vendors/jarallax/jarallax.css') }}"/>
-            <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.min.css') }}"/>
-            <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.pips.css') }}"/>
+{{--            <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.min.css') }}"/>--}}
+{{--            <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.pips.css') }}"/>--}}
             <link rel="stylesheet" href="{{ asset('assets/vendors/odometer/odometer.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('assets/vendors/swiper/swiper.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('assets/vendors/crsine-icons/style.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/vendors/tiny-slider/tiny-slider.min.css') }}"/>
+{{--            <link rel="stylesheet" href="{{ asset('assets/vendors/tiny-slider/tiny-slider.min.css') }}"/>--}}
             <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-fancybox/jquery.fancybox.min.css') }}">
 
             <!-- template styles -->
@@ -71,7 +71,7 @@
     <script src="{{ asset('assets/vendors/nouislider/nouislider.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/odometer/odometer.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/swiper/swiper.min.js') }}"></script>
-    <script src="{{ asset('assets/vendors/tiny-slider/tiny-slider.min.js') }}"></script>
+{{--    <script src="{{ asset('assets/vendors/tiny-slider/tiny-slider.min.js') }}"></script>--}}
     <script src="{{ asset('assets/vendors/wnumb/wNumb.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/wow/wow.js') }}"></script>
     <script src="{{ asset('assets/vendors/isotope/isotope.js') }}"></script>
