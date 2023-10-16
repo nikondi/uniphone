@@ -825,4 +825,51 @@ function eraseCookie(name) {
         };
     }
 
+    // Images carousel
+
+    document.querySelectorAll('.images-carousel').forEach(function(carousel) {
+        const slidesCount = carousel.querySelectorAll('.images-carousel__item').length;
+        const slider = new Swiper(carousel, {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            slideToClickedSlide: true,
+            loopedSlides: slidesCount,
+            loop: true,
+            speed: 1500,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            on: {
+                touchStart: function() {
+                    carousel.querySelector('.swiper-wrapper').classList.add('touching');
+                },
+                touchEnd: function() {
+                    carousel.querySelector('.swiper-wrapper').classList.remove('touching');
+                },
+                slideChange: function() {
+                    $(".images-carousel .lightbox-image").fancybox({
+                        openEffect: "fade",
+                        closeEffect: "fade",
+                        helpers: {
+                            media: {}
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+
+    // Post pictures
+
+    new Swiper('.post-pictures', {
+        spaceBetween: 20,
+        pagination: {
+            el: '.post-pictures__paginate',
+            clickable: true,
+        }
+    });
+
 })(jQuery);

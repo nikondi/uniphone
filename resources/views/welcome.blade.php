@@ -1118,7 +1118,30 @@
         </div><!-- /.thm-swiper__slider -->
     </div><!-- /.gallery-two -->--}}
 
-
+    <section class="images-carousel-wrap">
+        <div class="swiper images-carousel">
+            <div class="swiper-wrapper">
+                @php
+                    $slides = [
+                        asset('assets/images/backgrounds/main-slider-1-1.jpg'),
+                        asset('assets/images/images-carousel/1.jpg'),
+                        asset('assets/images/images-carousel/photo_2023-08-07_21-35-32.jpg'),
+                        asset('assets/images/images-carousel/photo_2023-08-15_14-38-33.jpg'),
+                        asset('assets/images/images-carousel/photo_2023-09-01_08-46-50.jpg'),
+                        asset('assets/images/images-carousel/photo_2023-07-26_14-47-33 (2).jpg'),
+                    ];
+                @endphp
+                @foreach($slides as $slide)
+                    <div class="swiper-slide images-carousel__item">
+                        <a href="{{ $slide }}" class="lightbox-image">
+                            <div></div>
+                        </a>
+                        <img src="{{ $slide }}" alt="">
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
     @if(!empty($news)) {{-- TODO: Slider mobile--}}
         <section class="blog-home">
