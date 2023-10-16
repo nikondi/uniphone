@@ -16,6 +16,8 @@
             rel="stylesheet">
 
         @section('styles')
+            <link rel="stylesheet" href="{{ asset('assets/css/preloader.min.css') }}"/>
+
             <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('assets/vendors/animate/animate.min.css') }}"/>
@@ -27,13 +29,14 @@
             <link rel="stylesheet" href="{{ asset('assets/vendors/crsine-icons/style.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/vendors/tiny-slider/tiny-slider.min.css') }}"/>
             <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-fancybox/jquery.fancybox.min.css') }}">
+
             <!-- template styles -->
             <link rel="stylesheet" href="{{ asset('assets/css/crsine.css') }}"/>
         @show
     @show
 </head>
 
-<body>
+<body{!! body_classes() !!}>
 @include('layout.parts.preloader')
 <div class="page-wrapper" id="page-wrapper">
     @include('layout.parts.header')

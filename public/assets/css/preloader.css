@@ -1,0 +1,124 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9991;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    display: -webkit-box;
+    display: flex;
+    transition: 1.2s visibility;
+}
+
+.preloader__image {
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    transition: 0.7s opacity;
+    transition-delay: 500ms;
+    position: relative;
+    z-index: 1;
+}
+
+.preloader__image #preloader-svg-un,
+.preloader__image #preloader-svg-i,
+.preloader__image #preloader-svg-phone {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    will-change: stroke-dashoffset;
+    pointer-events: none;
+}
+
+.preloader__image #preloader-svg-un {
+    stroke-dasharray: 124.4625320435;
+    animation-name: preloader-anim-un;
+}
+
+.preloader__image #preloader-svg-i {
+    stroke-dasharray: 30.5;
+    animation-name: preloader-anim-i;
+}
+
+.preloader__image #preloader-svg-phone {
+    animation-name: preloader-anim-phone;
+    stroke-dasharray: 259.4951477051;
+}
+
+.preloader__image .preloader-svg-gray {
+    animation-name: preloader-anim-gray;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    will-change: filter;
+    pointer-events: none;
+}
+
+.preloader__image #preloader-svg-dot {
+    animation-name: preloader-anim-dot;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    will-change: transform;
+    transform-origin: 50% 50%;
+    pointer-events: none;
+}
+
+.preloader__background {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.preloader__background .layer {
+    width: 33.333%;
+    overflow: hidden;
+}
+
+.preloader__background .layer:before {
+    content: "";
+    display: block;
+    width: 110%;
+    height: 100%;
+    background-color: var(--thm-base);
+    transform: translate3d(-5%, 0, 0);
+    transition: transform 1.2s ease;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.preloader:not(.active),
+.preloader.hidden {
+    visibility: hidden;
+}
+
+.preloader:not(.active) .preloader__background .layer:before {
+    transform: translate3d(-110%, 0, 0);
+}
+
+.preloader:not(.active) .preloader__image {
+    opacity: 0;
+}

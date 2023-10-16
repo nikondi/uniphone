@@ -1,3 +1,26 @@
+function setCookie(name,value,seconds) {
+    var expires = "";
+    if (seconds) {
+        var date = new Date();
+        date.setTime(date.getTime() + (seconds * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
 (function($) {
     "use strict";
 
@@ -730,6 +753,76 @@
         };
         mn_breakpoint.addListener(mnBreakpointChecker);
         mnBreakpointChecker();
+    }
+
+
+    // Dark mode
+
+    const dark_mode_toggle = document.getElementById('dark-mode-toggle');
+    if(dark_mode_toggle) {
+        let toggle_timeout2;
+
+        let transition_timeout;
+
+        const addTransitions = function() {
+            document.body.querySelectorAll('*:not(script, .animate-theme)').forEach(function(elem) {
+                if(elem.style.transition)
+                    return;
+
+                elem.classList.add('animate-theme');
+                if(window.getComputedStyle(elem).transition != 'all 0s ease 0s')
+                    elem.style.transition = window.getComputedStyle(elem).transition+', background-color .5s, color .5s, border-color .5s';
+                else
+                    elem.style.transition = 'background-color .5s, color .5s, border-color .5s';
+            });
+
+            clearTimeout(transition_timeout);
+            transition_timeout = setTimeout(function() {
+                document.body.querySelectorAll('.animate-theme').forEach(function(elem) {
+                    elem.style.transition = null;
+                    elem.classList.remove('animate-theme');
+                    if(elem.attributes.style?.value == '')
+                        elem.removeAttribute('style');
+                });
+            }, 500);
+
+        }
+
+
+        let change_by_program = false;
+
+        window.addEventListener('storage', function(e) {
+            if(e.key == 'theme') {
+                addTransitions();
+                document.body.className = document.body.className.replace(new RegExp(/\btheme-.+?\b/, 'g'), '');
+                document.body.classList.add('theme-'+e.newValue);
+                change_by_program = true;
+                dark_mode_toggle.checked = e.newValue == 'dark';
+            }
+        });
+
+        dark_mode_toggle.onchange = function() {
+            clearTimeout(toggle_timeout2);
+
+            addTransitions();
+
+            let new_theme = 'light';
+            if(this.checked) {
+                document.body.classList.add('theme-dark');
+                document.body.classList.remove('theme-light');
+                new_theme = 'dark';
+            }
+            else {
+                document.body.classList.remove('theme-dark');
+                document.body.classList.add('theme-light');
+            }
+
+            localStorage.theme = new_theme;
+
+            toggle_timeout2 = setTimeout(function() {
+                setCookie('theme', new_theme, 365 * 24 * 60 * 60);
+            }, 200);
+        };
     }
 
 })(jQuery);

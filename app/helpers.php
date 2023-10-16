@@ -25,3 +25,38 @@ if(!function_exists('settings')) {
     }
 }
 
+if(!function_exists('get_theme')) {
+    function get_theme(): ?string
+    {
+        return $_COOKIE['theme'] ?? null;
+    }
+}
+if(!function_exists('is_theme')) {
+    function is_theme(string $name): bool
+    {
+        $theme = get_theme();
+        if(!is_null($theme))
+            return $theme;
+
+        return $name == 'light';
+    }
+}
+
+if(!function_exists('body_classes')) {
+    function body_classes(string|array $additional = []): string
+    {
+        if(is_array($additional))
+            $classes = [...$additional];
+        else
+            $classes = [$additional];
+
+        $theme = get_theme();
+        $classes[] = 'theme-'.$theme;
+
+        if(!empty($classes))
+            return ' class="'.implode(' ', $classes).'"';
+
+        return '';
+    }
+}
+

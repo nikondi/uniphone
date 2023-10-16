@@ -9,13 +9,14 @@
 
         @include('layout.parts.favicons')
 
+        <link rel="stylesheet" href="{{ asset('assets/css/preloader.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}"/>
         <!-- template styles -->
         <link rel="stylesheet" href="{{ asset('assets/css/crsine.css') }}"/>
     @show
 </head>
 
-<body>
+<body{{ body_classes() }}>
 
 <div class="page-wrapper page-wrapper--error">
     <div class="page-content">

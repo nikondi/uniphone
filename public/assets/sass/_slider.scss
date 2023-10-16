@@ -5,11 +5,8 @@
 
     .swiper-slide {
         position: relative;
-        background-color: $thm-black;
-        @include dark-theme {
-            background-color: #1a1438;
-        }
         height: auto;
+        background-color: #1a1438;
 
         &::before {
             content: '';
@@ -81,7 +78,6 @@
         }
 
 
-
         @include laptop {
             font-size: 68px;
         }
@@ -102,9 +98,9 @@
         transform: translateY(100px);
         transition-delay: 2500ms;
         transition: transform 2000ms ease,
-            opacity 2000ms ease,
-            color 500ms ease,
-            background 500ms ease;
+        opacity 2000ms ease,
+        color 500ms ease,
+        background 500ms ease;
 
         @media (max-width: 767px) {
             padding: 10px 15px;
@@ -199,12 +195,11 @@
     .swiper-button-prev {
         margin-right: 10px;
 
-/*        @media (max-width: 991px) {
-            margin-top: 10px;
-        }*/
+        /*        @media (max-width: 991px) {
+                    margin-top: 10px;
+                }*/
     }
 }
-
 
 
 .main-slider__nav-two {

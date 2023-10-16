@@ -157,15 +157,22 @@
         top: 100%;
         left: 0;
         min-width: 220px;
-        background-color: #fff;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
         opacity: 0;
         visibility: hidden;
-        transition: 500ms ease;
+        transition-property: visibility, opacity;
+        transition-duration: 500ms;
+        transition-timing-function: ease;
         z-index: 99;
         box-shadow: 0px 0px 65px 0px rgba(0, 0, 0, 0.1);
+        @include light-theme {
+            background-color: #fff;
+        }
+        @include dark-theme {
+            background-color: #333333;
+        }
     }
 
     .main-menu__list li:hover > ul {
@@ -267,6 +274,7 @@
     right: 0;
     height: 109px;
     z-index: 990;
+
     &:not(.active) {
         display: none;
     }
@@ -358,12 +366,15 @@
 
     &__right {
         margin-left: auto;
-        border-left: 1px solid #ebf0f6;
+        border-left: 1px solid;
         padding-left: 30px;
         display: flex;
         align-items: center;
 
-        @media (prefers-color-scheme: dark) {
+        @include light-theme {
+            border-color: #ebf0f6;
+        }
+        @include dark-theme {
             border-color: #666666;
         }
         @media (max-width: 1199px) {

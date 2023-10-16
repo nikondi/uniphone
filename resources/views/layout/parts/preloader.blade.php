@@ -1,4 +1,4 @@
-<div class="preloader active">
+<div class="preloader active hidden">
     <svg width="238" height="96" viewBox="0 0 238 96" fill="none" xmlns="http://www.w3.org/2000/svg" class="preloader__image">
         <defs>
             <clipPath id="preloader-svg-clip" clipPathUnits="userSpaceOnUse">
@@ -35,9 +35,11 @@
 </div>
 <!-- /.preloader -->
 <script>
-    document.querySelector('.preloader').classList.add('active');
-    window.addEventListener('load', function() {
-        document.querySelector('.preloader').classList.remove('active');
+    document.querySelector('.preloader').classList.remove('hidden');
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.querySelector('.preloader').classList.remove('active');
+        }, 200);
     });
 </script>
 

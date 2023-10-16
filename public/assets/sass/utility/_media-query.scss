@@ -29,8 +29,24 @@
   }
 }
 
-@mixin dark-theme {
+
+
+@mixin dark-theme($toBody: true) {
     @media (prefers-color-scheme: dark) {
         @content
+    }
+    @if($toBody) {
+        @at-root body.theme-dark & {
+            @content
+        }
+    }
+}
+@mixin light-theme($toBody: true) {
+    @content;
+
+    @if($toBody) {
+        @at-root body.theme-light & {
+            @content
+        }
     }
 }
