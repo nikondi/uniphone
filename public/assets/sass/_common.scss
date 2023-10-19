@@ -523,7 +523,7 @@ p {
     }
 }
 
-#dark-mode-toggle {
+/*#dark-mode-toggle {
     --size: 2rem;
 
     appearance: none;
@@ -554,5 +554,43 @@ p {
         var(--offset-diagonal) var(--offset-diagonal) 0 var(--ray-size),
         calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0 var(--ray-size),
         var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0 var(--ray-size),;
+    }
+}*/
+
+.dmtoggle {
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    &-sun,
+    &-moon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        transition: .5s transform;
+        will-change: transform;
+        pointer-events: none;
+    }
+    &:not(.active) &-sun {
+        transform: translate3d(-50%, 200%, 0);
+    }
+    &.active &-moon {
+        transform: translate3d(-50%, -200%, 0);
+    }
+}
+
+.round-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    color: $thm-black;
+    border: 1px solid currentColor;
+    transition: .3s color;
+    &:hover,
+    &:focus {
+        color: $thm-primary;
     }
 }

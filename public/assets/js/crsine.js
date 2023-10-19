@@ -798,6 +798,7 @@ function eraseCookie(name) {
                     elem.style.transition = window.getComputedStyle(elem).transition+', background-color .5s, color .5s, border-color .5s';
                 else
                     elem.style.transition = 'background-color .5s, color .5s, border-color .5s';
+                elem.style.willChange = 'background-color, color, border-color';
             });
 
             clearTimeout(transition_timeout);
@@ -805,6 +806,7 @@ function eraseCookie(name) {
                 document.body.querySelectorAll('.animate-theme').forEach(function(elem) {
                     elem.style.transition = null;
                     elem.classList.remove('animate-theme');
+                    elem.style.willChange = null;
                     if(elem.attributes.style?.value == '')
                         elem.removeAttribute('style');
                 });
@@ -825,29 +827,32 @@ function eraseCookie(name) {
             }
         });
 
-        dark_mode_toggle.onclick = function() {
+        dark_mode_toggle.onclick = function(e) {
+            e.preventDefault();
             clearTimeout(toggle_timeout2);
-
-            addTransitions();
-
-            dark_mode_toggle.classList.toggle('active');
-
-            let new_theme = 'light';
-            if(this.classList.contains('active')) {
-                document.body.classList.add('theme-dark');
-                document.body.classList.remove('theme-light');
-                new_theme = 'dark';
-            }
-            else {
-                document.body.classList.remove('theme-dark');
-                document.body.classList.add('theme-light');
-            }
-
-            localStorage.theme = new_theme;
-
             toggle_timeout2 = setTimeout(function() {
+
+                dark_mode_toggle.blur();
+
+                addTransitions();
+
+                dark_mode_toggle.classList.toggle('active');
+
+                let new_theme = 'light';
+                if(dark_mode_toggle.classList.contains('active')) {
+                    document.body.classList.add('theme-dark');
+                    document.body.classList.remove('theme-light');
+                    new_theme = 'dark';
+                }
+                else {
+                    document.body.classList.remove('theme-dark');
+                    document.body.classList.add('theme-light');
+                }
+
+                localStorage.theme = new_theme;
+
                 setCookie('theme', new_theme, 365 * 24 * 60 * 60);
-            }, 200);
+            }, 100);
         };
     }
 

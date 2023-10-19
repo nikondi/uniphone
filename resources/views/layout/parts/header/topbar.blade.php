@@ -1,5 +1,5 @@
 <div class="topbar">
-    <div class="container">
+{{--    <div class="container">--}}
         <div class="topbar__inner">
             <ul class="list-unstyled topbar__infos">
                 <li class="topbar__infos-item">
@@ -23,5 +23,5 @@
                 <a href="#" class="fab fa-instagram"></a>--}}
             </div><!-- /.topbar__social -->
         </div><!-- /.topbar__inner -->
-    </div><!-- /.container -->
+{{--    </div><!-- /.container -->--}}
 </div><!-- /.topbar -->
