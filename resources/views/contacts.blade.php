@@ -52,11 +52,22 @@
                                 <input type="tel" placeholder="Номер телефона" name="phone" class="tel">
                             </div><!-- /.col-md-6 -->
                             <div class="col-md-6 input-wrap">
-                                <input type="text" placeholder="Тема" name="subject">
+                                <select name="subject">
+                                    <option value="" selected disabled>Выберите тему</option>
+                                    <option value="zakaz">Заказ</option>
+                                    <option value="question">Заявка на ремонт</option>
+                                    <option value="suggest">Предложение</option>
+                                </select>
+                                {{--<option value="1">Домофон</option>
+                                <option value="2">Телевидение</option>
+                                <option value="2">Остановка</option>--}}
+                                {{--                                <input type="text" placeholder="Тема" name="subject">--}}
                             </div><!-- /.col-md-6 -->
+                            {{-- TODO: второй селект на тип услуги --}}
                             <div class="col-md-12 input-wrap">
                                 <textarea name="message" placeholder="Сообщение"></textarea>
                             </div><!-- /.col-md-12 -->
+                            {{-- TODO: Текст согласия --}}
                             <div class="col-md-12">
                                 <button type="submit" class="thm-btn">
                                     Отправить

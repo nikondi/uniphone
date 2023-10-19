@@ -100,7 +100,10 @@
         li {
             position: relative;
             padding-left: 26px;
-            font-size: 18px;
+            font-size: 15px;
+            @include tablet {
+                font-size: 18px;
+            }
             font-weight: 500;
             color: $thm-primary;
 
@@ -111,13 +114,12 @@
 
             >i {
                 position: absolute;
-                top: 50%;
                 left: 0;
-                transform: translateY(-50%);
+                /*top: 50%;
+                transform: translateY(-50%);*/
                 font-size: 16px;
                 color: $thm-secondary;
-                top: 10px;
-                transform: translateY(0%);
+                top: 3px;
             }
         }
     }

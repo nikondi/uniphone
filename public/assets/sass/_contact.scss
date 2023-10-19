@@ -146,8 +146,13 @@
 
             &:hover,
             &:focus {
-                background-color: $thm-black;
-                color: #fff;
+                @include light-theme {
+                    background-color: $thm-black;
+                    color: #fff;
+                }
+                @include dark-theme {
+                    background-color: $thm-base-hover;
+                }
             }
         }
     }

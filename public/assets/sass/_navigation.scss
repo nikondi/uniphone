@@ -1,8 +1,10 @@
 .topbar {
     display: none;
-    background-color: rgba($thm-black-rgb, .7);
 
-    @media (prefers-color-scheme: dark) {
+    @include light-theme {
+        background-color: rgba($thm-black-rgb, .7);
+    }
+    @include dark-theme {
         background-color: rgba(#222222, .7);
     }
 
@@ -175,6 +177,7 @@
         }
     }
 
+
     .main-menu__list li:hover > ul {
         opacity: 1;
         visibility: visible;
@@ -187,7 +190,7 @@
     }
 
     .main-menu__list li ul li + li {
-        border-top: 1px solid RGBA($thm-black, 0.1);
+        border-top: 1px solid rgba($thm-black, 0.1);
     }
 
     .main-menu__list li ul li a {
@@ -195,10 +198,7 @@
         line-height: 30px;
         color: $thm-black;
         display: flex;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding: 10px 20px;
         transition: 500ms;
     }
 
@@ -232,13 +232,20 @@
     z-index: 991;
     top: 0;
     left: 0;
-    background-color: $thm-white;
     width: 100%;
     visibility: hidden;
     transform: translate3d(0, -120%, 0);
     transition: transform 500ms ease, visibility 500ms ease;
     will-change: transform;
     box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
+    background-color: rgba($thm-white-rgb, .8);
+    backdrop-filter: blur(10px);
+
+
+    .main-menu {
+        background: none;
+        backdrop-filter: none;
+    }
 
     @media (max-width: 1199px) {
         display: none;
@@ -331,8 +338,9 @@
         position: relative;
         padding-left: 276px;
         padding-right: 30px;
-        background-color: $thm-white;
+        background-color: rgba($thm-white-rgb, .8);
         box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(10px);
 
         @media(max-width: 1199px) {
             padding-left: 0px;

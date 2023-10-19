@@ -730,15 +730,27 @@ function eraseCookie(name) {
 
         const enableMNSwiper = function() {
             main_news.slider = new Swiper(main_news, {
-                slidesPerView: 1,
+                slidesPerView: 1.05,
+                centeredSlides: true,
+                centeredSlidesBounds: true,
                 loop: false,
                 observer: true,
-                spaceBetween: 30,
+                spaceBetween: 15,
                 breakpoints: {
-                    767: {
-                        slidesPerView: 2,
+                    768: {
+                        slidesPerView: 2.15,
+                        spaceBetween: 30,
                     },
                 },
+            });
+            if(window.matchMedia('(min-width: 768px)').matches) {
+                if(main_news.slider.activeIndex == 0)
+                    main_news.slider.slideTo(1);
+            }
+
+            window.matchMedia('(min-width: 768px)').addListener(function() {
+                if(main_news.slider.activeIndex == 0)
+                    main_news.slider.slideTo(1);
             });
         };
 
@@ -760,6 +772,18 @@ function eraseCookie(name) {
 
     const dark_mode_toggle = document.getElementById('dark-mode-toggle');
     if(dark_mode_toggle) {
+        const dark_media = window.matchMedia('(prefers-color-scheme: dark');
+        const checkTheme = function() {
+            if(!document.body.className.match(new RegExp(/\btheme-.+?\b/, 'g'), '')) {
+                if(dark_media.matches)
+                    dark_mode_toggle.classList.add('active');
+                else
+                    dark_mode_toggle.classList.remove('active');
+            }
+        }
+        checkTheme();
+        dark_media.addListener(checkTheme);
+
         let toggle_timeout2;
 
         let transition_timeout;
@@ -801,13 +825,15 @@ function eraseCookie(name) {
             }
         });
 
-        dark_mode_toggle.onchange = function() {
+        dark_mode_toggle.onclick = function() {
             clearTimeout(toggle_timeout2);
 
             addTransitions();
 
+            dark_mode_toggle.classList.toggle('active');
+
             let new_theme = 'light';
-            if(this.checked) {
+            if(this.classList.contains('active')) {
                 document.body.classList.add('theme-dark');
                 document.body.classList.remove('theme-light');
                 new_theme = 'dark';

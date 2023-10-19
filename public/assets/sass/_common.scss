@@ -1,8 +1,10 @@
+:root {
+    --thm-font: 'OpenSans', sans-serif;
+    --heading-font: 'Century Gothic', sans-serif;
+    --special-font: 'OpenSans', sans-serif;
+}
 body,
 body.theme-light {
-    --thm-font: 'OpenSans', sans-serif;
-    --heading-font: 'Oswald', sans-serif;
-    --special-font: 'OpenSans', sans-serif;
     --thm-color: #727a84;
     --thm-color-rgb: 114, 122, 132;
     --thm-gray: #eef3f7;
@@ -33,15 +35,12 @@ body.theme-light {
 }
 
 @mixin dark-colors {
-    --thm-font: 'OpenSans', sans-serif;
-    --heading-font: 'Oswald', sans-serif;
-    --special-font: 'OpenSans', sans-serif;
     --thm-color: #e5e5e5;
     --thm-color-rgb: 114, 122, 132;
     --thm-gray: #444444;
     --thm-gray-rgb: 238, 243, 247;
     --thm-white: #3b3272;
-    --thm-white-rgb: 255, 255, 255;
+    --thm-white-rgb: 59, 50, 114;
     --thm-base: #246BFD;
     --thm-base-rgb: 36, 107, 253;
     --thm-base-hover: #1b50bd;
@@ -68,11 +67,17 @@ body.theme-light {
 @include dark-theme(false) {
     body {
         @include dark-colors;
+        background-color: #222222;
     }
 }
 
 body.theme-dark {
     @include dark-colors;
+    background-color: #222222;
+}
+
+body.theme-light {
+    background-color: #ffffff;
 }
 
 body {
@@ -80,7 +85,10 @@ body {
     color: $thm-color;
     font-size: $body-size;
     line-height: $body-line-height;
-    font-weight: 500;
+    font-weight: 400;
+    @media (max-width: 768px) {
+        font-size: 15px;
+    }
 }
 
 body.locked {
@@ -219,18 +227,23 @@ p {
     }
 
     &--default {
-        padding: 6px 14px;
+        padding: 8px 14px;
 
         &:hover {
-            background-color: $thm-primary;
+            @include light-theme {
+                background-color: $thm-primary;
+            }
+            @include dark-theme {
+                background-color: $thm-base-hover;
+            }
             color: #ffffff;
         }
 
-        @include laptop {
-            padding: 10px 30px;
-        }
         @include tablet {
-            padding: 8px 22px;
+            padding: 12px 22px;
+        }
+        @include laptop {
+            padding: 14px 30px;
         }
     }
 }
@@ -274,7 +287,10 @@ p {
 
 .section-title {
     margin-top: -9px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+    @include tablet {
+        margin-bottom: 50px;
+    }
 
     &__tagline {
         display: inline-flex;
@@ -522,7 +538,7 @@ p {
 
     transition: all 500ms;
 
-    &:checked {
+    &.active {
         --ray-size: calc(var(--size) * -0.4);
         --offset-orthogonal: calc(var(--size) * 0.65);
         --offset-diagonal: calc(var(--size) * 0.45);

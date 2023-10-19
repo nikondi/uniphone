@@ -33,9 +33,9 @@
                         <h3 class="footer-widget__title">Ссылки</h3><!-- /.footer-widget__title -->
                         <div class="footer-widget__links-wrap">
                             <ul class="list-unstyled">
-                                <li><a href="#">Вакансии</a></li>
-                                <li><a href="{{ route('camera') }}">Камеры</a></li>
-                                <li><a href="{{ route('unibot.chat') }}">Чат с UniBot</a></li>
+                                <li class="mb-3"><a href="#">Вакансии</a></li>
+                                <li class="mb-3"><a href="{{ route('camera') }}">Камеры</a></li>
+                                <li class="mb-3"><a href="{{ route('unibot.chat') }}">Чат с UniBot</a></li>
                             </ul><!-- /.list-unstyled -->
                             <ul class="list-unstyled">
 
@@ -56,7 +56,7 @@
                             </a>
                         </div>
                         <div class="col-3 d-flex justify-content-end justify-content-lg-start col-lg-12 mt-4">
-                            <input id="dark-mode-toggle" type="checkbox"{{ is_theme('light')?' checked':'' }} title="Тема">
+                            <span id="dark-mode-toggle" {!! is_theme('light')?'':' class="active"' !!} title="Тема"></span>
                         </div>
                     </div>
                 </div>

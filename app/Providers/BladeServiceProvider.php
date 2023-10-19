@@ -23,10 +23,10 @@ class BladeServiceProvider extends ServiceProvider
     {
         Blade::directive('settings', function ($expression) {
             $expression = trim($expression, "\'\"");
-            $setting = Settings::query()->where('key', $expression)->first();
+            $setting = settings($expression);
 
             if(!is_null($setting))
-                return $setting->value;
+                return $setting;
 
             if(env('APP_DEBUG'))
                 return '!var-'.$expression.'-var!';

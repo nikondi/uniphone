@@ -35,8 +35,11 @@
 
     &__description {
         p {
-            font-size: 18px;
-            line-height: 32px;
+            line-height: 1.7;
+            font-size: 15px;
+            @include tablet {
+                font-size: 18px;
+            }
             font-weight: 500;
             color: $thm-color;
 

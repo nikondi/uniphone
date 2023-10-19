@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="section-title wow slideInUp" data-wow-delay="0ms" data-wow-duration="1100ms">
-                        <h2 class="section-title__title">Тамбурные двери <span class="text-primary">Uniphone</span></h2>
+                        <h2 class="section-title__title">Двери <span class="text-primary">Uniphone</span></h2>
                     </div>
                     <div class="main-about__description wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1100ms">
                         <p>

@@ -34,11 +34,7 @@ if(!function_exists('get_theme')) {
 if(!function_exists('is_theme')) {
     function is_theme(string $name): bool
     {
-        $theme = get_theme();
-        if(!is_null($theme))
-            return $theme;
-
-        return $name == 'light';
+        return $name == get_theme();
     }
 }
 
@@ -51,7 +47,8 @@ if(!function_exists('body_classes')) {
             $classes = [$additional];
 
         $theme = get_theme();
-        $classes[] = 'theme-'.$theme;
+        if(!is_null($theme))
+            $classes[] = 'theme-'.$theme;
 
         if(!empty($classes))
             return ' class="'.implode(' ', $classes).'"';
