@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/preloader.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}"/>
         <!-- template styles -->
-        <link rel="stylesheet" href="{{ asset('assets/css/crsine.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}"/>
     @show
 </head>
 

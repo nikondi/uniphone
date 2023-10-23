@@ -10,7 +10,7 @@
 @section('breadcrumbs')
     <x-breadcrumbs.link :url="route('welcome')" :text="__('Главная')"/>
     <x-breadcrumbs.separator/>
-    <x-breadcrumbs.link :url="route('news')" :text="__('Новости')"/>
+    <x-breadcrumbs.link :url="route('news.index')" :text="__('Новости')"/>
 @endsection
 
 @section('content')

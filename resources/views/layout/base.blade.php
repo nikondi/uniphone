@@ -31,7 +31,7 @@
             <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-fancybox/jquery.fancybox.min.css') }}">
 
             <!-- template styles -->
-            <link rel="stylesheet" href="{{ asset('assets/css/crsine.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}"/>
         @show
     @show
 </head>
@@ -78,7 +78,7 @@
     <script src="{{ asset('assets/vendors/countdown/countdown.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/jquery-fancybox/jquery.fancybox.min.js') }}"></script>
     <!-- template js -->
-    <script src="{{ asset('assets/js/crsine.js') }}"></script>
+    <script src="{{ asset('assets/js/js.js') }}"></script>
 @show
 </body>
 

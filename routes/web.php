@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\UnibotController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
@@ -20,18 +21,28 @@ use App\Http\Controllers\FeedbackController;
 
 Route::get('/', WelcomeController::class)->name('welcome');
 
-Route::get('/news/', [NewsController::class, 'index'])->name('news');
-Route::get('/news/{post_slug}', [NewsController::class, 'show'])->name('news.show');
+Route::prefix('news')->controller(NewsController::class)->name('news.')->group(function() {
+    Route::get('/', 'index')->name('index');
+    Route::get('{post_slug}', 'show')->name('show');
+});
 
 Route::get('/about/', AboutController::class)->name('about');
 
-Route::get('/contacts/', [FeedbackController::class, 'contacts'])->name('contacts');
-Route::post('/feedback/send/', [FeedbackController::class, 'send'])->name('feedback.send');
+Route::controller(FeedbackController::class)->group(function() {
+    Route::get('/contacts/', 'contacts')->name('contacts');
+    Route::post('/feedback/send/', 'send')->name('feedback.send');
+});
 
 Route::get('/camera/', function() {
     return view('cameras');
 })->name('camera');
 
-Route::get('/unibot/', [UnibotController::class, 'chat'])->name('unibot.chat');
-Route::post('/unibot/send/', [UnibotController::class, 'send'])->name('unibot.send');
+Route::prefix('unibot')->controller(UnibotController::class)->name('unibot.')->group(function() {
+    Route::get('/', 'chat')->name('chat');
+    Route::post('send', 'send')->name('send');
+});
 
+Route::prefix('catalog')->controller(CatalogController::class)->name('catalog.')->group(function() {
+    Route::get('/', 'index')->name('index');
+    /*Route::post('send', [UnibotController::class, 'send'])->name('send');*/
+});
