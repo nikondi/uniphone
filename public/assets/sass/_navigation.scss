@@ -2,10 +2,10 @@
     display: none;
 
     @include light-theme {
-        background-color: rgba($thm-black-rgb, .7);
+        background-color: rgba($thm-black-rgb, .9);
     }
     @include dark-theme {
-        background-color: rgba(#222222, .7);
+        background-color: rgba(#222222, .9);
     }
 
 
@@ -83,11 +83,12 @@
 .main-menu {
     position: relative;
     z-index: 91;
-    @media (max-width: 767px) {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+
+    &__lk-link {
+        margin-left: 15px;
+        @media (max-width: 575px) {
+            display: none;
+        }
     }
 }
 
@@ -272,7 +273,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 109px;
+    height: 82px;
     z-index: 990;
 
     &:not(.active) {
@@ -387,7 +388,7 @@
             top: auto;
             left: auto;
             width: auto;
-            padding: 15px 60px 15px 30px;
+            padding: 5px 60px 5px 30px;
         }
 
         @media(max-width: 425px) {
@@ -469,6 +470,10 @@
     z-index: 91;
     width: 100%;
     @media (max-width: 767px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         .container {
             padding-left: 0;
             padding-right: 0;

@@ -1,6 +1,30 @@
 @extends('layout.base', ['pageHeader' => false])
 
 @section('content')
+
+{{--    <section class="main-first">
+        <div class="main-text">
+            <div class="main-text__background">
+                <img src="{{ asset('assets/images/backgrounds/main-slider-1-1.jpg') }}" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <h1 class="wow fadeInDown">Цифровая платформа<br /> КСОБЖ-<span class="text-primary">Uniphone</span></h1>
+                    <div class="main-text-ksobj">
+                        <div class="wow fadeIn" data-wow-delay="400ms" data-wow-duration="1100ms">Комплексная</div>
+                        <div class="wow fadeIn" data-wow-delay="600ms" data-wow-duration="1100ms">Система</div>
+                        <div class="wow fadeIn" data-wow-delay="800ms" data-wow-duration="1100ms">Обеспечения</div>
+                        <div class="wow fadeIn" data-wow-delay="1000ms" data-wow-duration="1100ms">Безопасности</div>
+                        <div class="wow fadeIn" data-wow-delay="1200ms" data-wow-duration="1100ms">Жизнедеятельности</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-map">
+            <img src="{{ asset('assets/images/main/map-background.png') }}" alt="">
+        </div>
+    </section>--}}
+
     <section class="main-slider">
         <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
           "effect": "fade",
@@ -37,7 +61,7 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <h2>Большие производ<span class="mobile-break"></span>ственные мощности</h2>
-{{--                                <a href="online-booking.html" class="thm-btn">Order Now <i class="far fa-arrow-alt-circle-right"></i></a>--}}
+                                <a href="online-booking.html" class="thm-btn">Order Now <i class="far fa-arrow-alt-circle-right"></i></a>
                                 <!-- /.thm-btn dynamic-radius -->
                             </div><!-- /.col-lg-7 text-right -->
                         </div><!-- /.row -->
@@ -1164,6 +1188,7 @@
                                 <x-news.card :$post class="wow flipInY" data-wow-duration="1100ms" data-wow-delay="{{ $k * 300 }}ms"/>
                             </div>
                         @endforeach
+                    </div>
                 </div><!-- /.swiper-container thm-swiper__slider -->
             </div><!-- /.container -->
         </section><!-- /.blog-home -->
