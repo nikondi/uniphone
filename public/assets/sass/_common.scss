@@ -466,7 +466,13 @@ p {
 }
 
 
-.google-map__contact-page {
+.map__contact-page {
+    filter: grayscale(1);
+    transition: .8s filter;
+    will-change: filter;
+    &:hover {
+        filter: grayscale(0);
+    }
     iframe {
         width: 100%;
         height: 504px;

@@ -86,7 +86,7 @@
         </div><!-- /.container -->
     </section><!-- /.contact-one -->
 
-    <div class="google-map__contact-page">
+    <div class="map__contact-page">
         <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac09b94c8b3eea274c973215c676a5ba48997b9814fc02f1de9ee90c866e3157f&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=false"></script>
     </div>
     <!-- /.google-map -->

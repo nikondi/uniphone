@@ -550,7 +550,15 @@ body.theme-dark .post-pagination span {
   margin-right: 10px;
 }
 
-.google-map__contact-page iframe {
+.map__contact-page {
+  filter: grayscale(1);
+  transition: 0.8s filter;
+  will-change: filter;
+}
+.map__contact-page:hover {
+  filter: grayscale(0);
+}
+.map__contact-page iframe {
   width: 100%;
   height: 504px;
   border: none;
