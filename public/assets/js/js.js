@@ -65,6 +65,54 @@ function simulateSticky(elem, timeout = 0) {
     }, timeout);
 }
 
+function thmSwiperInit() {
+    // swiper slider
+    const swiperElm = document.querySelectorAll(".thm-swiper__slider");
+    swiperElm.forEach(function(swiperelm) {
+        const swiperOptions = JSON.parse(swiperelm.dataset.swiperOptions);
+        let thmSwiperSlider = new Swiper(swiperelm, swiperOptions);
+    });
+}
+
+function thmTinyInit() {
+    // tiny slider
+    const tinyElm = document.querySelectorAll(".thm-tiny__slider");
+    tinyElm.forEach(function(tinyElm) {
+        const tinyOptions = JSON.parse(tinyElm.dataset.tinyOptions);
+        let thmTinySlider = tns(tinyOptions);
+    });
+}
+
+function thmTestimonialsThumbCarousel() {
+    if($("#testimonials-one__thumb").length) {
+        let testimonialsThumb = new Swiper("#testimonials-one__thumb", {
+            slidesPerView: 3,
+            spaceBetween: 0,
+            speed: 1400,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            autoplay: {
+                delay: 5000
+            }
+        });
+
+        let testimonialsCarousel = new Swiper("#testimonials-one__carousel", {
+            observer: true,
+            observeParents: true,
+            speed: 1400,
+            mousewheel: true,
+            slidesPerView: 1,
+            autoplay: {
+                delay: 5000
+            },
+            thumbs: {
+                swiper: testimonialsThumb
+            }
+        });
+    }
+}
+
+
 
 $(document).ready(function() {
     "use strict";
@@ -475,63 +523,12 @@ $(document).ready(function() {
             (handle ? $(limitFieldMax) : $(limitFieldMin)).text(values[handle]);
         });
     }
-
-    function thmSwiperInit() {
-        // swiper slider
-        const swiperElm = document.querySelectorAll(".thm-swiper__slider");
-        swiperElm.forEach(function(swiperelm) {
-            const swiperOptions = JSON.parse(swiperelm.dataset.swiperOptions);
-            let thmSwiperSlider = new Swiper(swiperelm, swiperOptions);
-        });
-    }
-
-    function thmTinyInit() {
-        // tiny slider
-        const tinyElm = document.querySelectorAll(".thm-tiny__slider");
-        tinyElm.forEach(function(tinyElm) {
-            const tinyOptions = JSON.parse(tinyElm.dataset.tinyOptions);
-            let thmTinySlider = tns(tinyOptions);
-        });
-    }
-
-    function thmTestimonialsThumbCarousel() {
-        if($("#testimonials-one__thumb").length) {
-            let testimonialsThumb = new Swiper("#testimonials-one__thumb", {
-                slidesPerView: 3,
-                spaceBetween: 0,
-                speed: 1400,
-                watchSlidesVisibility: true,
-                watchSlidesProgress: true,
-                autoplay: {
-                    delay: 5000
-                }
-            });
-
-            let testimonialsCarousel = new Swiper("#testimonials-one__carousel", {
-                observer: true,
-                observeParents: true,
-                speed: 1400,
-                mousewheel: true,
-                slidesPerView: 1,
-                autoplay: {
-                    delay: 5000
-                },
-                thumbs: {
-                    swiper: testimonialsThumb
-                }
-            });
-        }
-    }
-
     // window load event
 
     $(window).on("load", function() {
         /*if($(".preloader").length) {
             $(".preloader").fadeOut();
         }*/
-        thmSwiperInit();
-        thmTinyInit();
-        thmTestimonialsThumbCarousel();
 
         if($(".circle-progress").length) {
             $(".circle-progress").appear(function() {
@@ -641,6 +638,10 @@ $(document).ready(function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    thmSwiperInit();
+    thmTinyInit();
+    thmTestimonialsThumbCarousel();
+
     const main_news = document.querySelector('.main-news');
     if(main_news) {
         const mn_breakpoint = window.matchMedia('(min-width: 992px');
@@ -693,9 +694,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const checkTheme = function() {
             if(!document.body.className.match(new RegExp(/\btheme-.+?\b/, 'g'), '')) {
                 if(dark_media.matches)
-                    dark_mode_toggle.classList.add('active');
+                    dark_mode_toggle.forEach((el) => el.classList.add('active'));
                 else
-                    dark_mode_toggle.classList.remove('active');
+                    dark_mode_toggle.forEach((el) => el.classList.remove('active'));
             }
         }
         checkTheme();

@@ -11,9 +11,9 @@ body.theme-light {
     --thm-gray-rgb: 238, 243, 247;
     --thm-white: #ffffff;
     --thm-white-rgb: 255, 255, 255;
-    --thm-base: #5dd5a8;
-    --thm-base-rgb: 93, 213, 168;
-    --thm-base-hover: #4daf8b;
+    --thm-base: #da4458;
+    --thm-base-rgb: 218, 68, 88;
+    --thm-base-hover: #a23344;
     --thm-primary: #246BFD;
     --thm-primary-rgb: 36, 107, 253;
     --thm-secondary: #3fbfef;
@@ -41,9 +41,12 @@ body.theme-light {
     --thm-gray-rgb: 238, 243, 247;
     --thm-white: #3b3272;
     --thm-white-rgb: 59, 50, 114;
-    --thm-base: #246BFD;
+    /*--thm-base: #246BFD;
     --thm-base-rgb: 36, 107, 253;
-    --thm-base-hover: #1b50bd;
+    --thm-base-hover: #1b50bd;*/
+    --thm-base: #da4458;
+    --thm-base-rgb: 218, 68, 88;
+    --thm-base-hover: #a23344;
     --thm-primary: #246BFD;
     --thm-primary-rgb: 36, 107, 253;
     --thm-secondary: #3fbfef;
@@ -230,12 +233,7 @@ p {
         padding: 8px 14px;
 
         &:hover {
-            @include light-theme {
-                background-color: $thm-primary;
-            }
-            @include dark-theme {
-                background-color: $thm-base-hover;
-            }
+            background-color: $thm-base-hover;
             color: #ffffff;
         }
 

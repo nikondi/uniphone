@@ -6,7 +6,7 @@
         <a href="{{ route('about') }}">{{ __('О компании') }}</a>
     </li>
     <li class="dropdown">
-        <a href="">{{ __('Каталог') }}</a>
+        <a href="{{ route('catalog.index') }}">{{ __('Каталог') }}</a>
         <ul>
             <li><a href="services.html">СКУД</a></li>
             <li><a href="service-details.html">И тд</a></li>
